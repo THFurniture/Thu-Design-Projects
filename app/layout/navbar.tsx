@@ -15,7 +15,15 @@ export default function Navbar() {
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
-    // Close mobile menu on route change-like behavior (best effort)
+    // Prevent scrolling when mobile menu is open
+    useEffect(() => {
+        if (menuOpen) {
+            document.body.style.overflow = "hidden";
+        } else {
+            document.body.style.overflow = "unset";
+        }
+    }, [menuOpen]);
+
     useEffect(() => {
         if (!menuOpen) return;
         const onKeyDown = (e: KeyboardEvent) => {
@@ -26,7 +34,6 @@ export default function Navbar() {
     }, [menuOpen]);
 
     const shellClass = useMemo(() => {
-        // Transparent at the top, elegant glass when scrolled
         return [
             "fixed top-0 left-0 right-0 z-50 transition-all duration-500",
             scrolled
@@ -40,7 +47,6 @@ export default function Navbar() {
             navLinkBase,
             scrolled ? "text-[#121212]/75 hover:text-[#121212]" : "text-white/80 hover:text-white",
             isActive ? (scrolled ? "text-[#121212]" : "text-white") : "",
-            // underline + active dot
             "after:absolute after:left-0 after:-bottom-2 after:h-[1px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300",
             scrolled ? "after:bg-[#8B877D]/70" : "after:bg-white/70",
             isActive ? "after:scale-x-100" : "hover:after:scale-x-100",
@@ -58,154 +64,130 @@ export default function Navbar() {
     }, [scrolled]);
 
     return (
-        <nav className={shellClass}>
-            {/* subtle top highlight line */}
-            <div
-                className={[
-                    "pointer-events-none absolute inset-x-0 top-0 h-px transition-opacity duration-500",
-                    scrolled ? "opacity-100" : "opacity-60",
-                ].join(" ")}
-                style={{
-                    background:
-                        "linear-gradient(90deg, rgba(139,135,125,0) 0%, rgba(139,135,125,0.55) 30%, rgba(139,135,125,0.55) 70%, rgba(139,135,125,0) 100%)",
-                }}
-            />
-
-            <div className="max-w-[1440px] mx-auto px-6 md:px-10">
-                <div className="h-20 md:h-24 flex items-center justify-between">
-                    <Link
-                        to="/"
-                        className="flex items-center gap-3 group"
-                        aria-label="Go to home"
-                        onClick={() => setMenuOpen(false)}
-                    >
-                        <img
-                            src="/logos/THU_Design_Projects_nobg_black.png"
-                            alt="Thu Design Projects Logo"
-                            className={[
-                                "w-auto object-contain select-none transition-all duration-500",
-                                scrolled ? "h-28 md:h-32 opacity-95" : "h-28 md:h-28 opacity-100",
-                                // in case hero is dark, make it readable on transparent top (optional)
-                                scrolled ? "" : "brightness-0 invert",
-                                "group-hover:opacity-85",
-                            ].join(" ")}
-                        />
-                    </Link>
-
-                    {/* Desktop */}
-                    <div className="hidden md:flex flex-1 justify-end items-center gap-12">
-                        <div className="flex items-center gap-10">
-                            <NavLink to="/" className={linkClass} end>
-                                Home
-                            </NavLink>
-                            <NavLink to="/about" className={linkClass}>
-                                About
-                            </NavLink>
-                            <NavLink to="/portfolio" className={linkClass}>
-                                Portfolio
-                            </NavLink>
-                            <NavLink to="/contact" className={linkClass}>
-                                Contact
-                            </NavLink>
-                        </div>
-
-                        <Link to="/contact" className={ctaClass}>
-                            Get in Touch
-                            <span
-                                className={[
-                                    "pointer-events-none absolute inset-0 opacity-0 transition-opacity duration-300",
-                                    "group-hover:opacity-100",
-                                ].join(" ")}
-                                style={{
-                                    background:
-                                        "radial-gradient(120px 60px at 70% 50%, rgba(239,237,232,0.22), rgba(0,0,0,0))",
-                                }}
-                            />
-                        </Link>
-                    </div>
-
-                    {/* Mobile button */}
-                    <button
-                        type="button"
-                        className={[
-                            "md:hidden inline-flex items-center justify-center h-11 w-11 rounded-md transition-colors duration-300",
-                            scrolled ? "text-[#121212] hover:bg-[#121212]/5" : "text-white hover:bg-white/10",
-                        ].join(" ")}
-                        aria-label={menuOpen ? "Close menu" : "Open menu"}
-                        aria-expanded={menuOpen}
-                        onClick={() => setMenuOpen((v) => !v)}
-                    >
-                        <span className="material-symbols-outlined">{menuOpen ? "close" : "menu"}</span>
-                    </button>
-                </div>
-
-                {/* Mobile dropdown */}
+        <>
+            <nav className={shellClass}>
                 <div
                     className={[
-                        "md:hidden overflow-hidden transition-[max-height,opacity] duration-500",
-                        menuOpen ? "max-h-96 opacity-100" : "max-h-0 opacity-0",
+                        "pointer-events-none absolute inset-x-0 top-0 h-px transition-opacity duration-500",
+                        scrolled ? "opacity-100" : "opacity-60",
                     ].join(" ")}
-                >
-                    <div
-                        className={[
-                            "pb-6",
-                            scrolled
-                                ? ""
-                                : "bg-black/35 backdrop-blur-xl rounded-xl mb-4 border border-white/10",
-                        ].join(" ")}
-                    >
-                        <div className="px-1 pt-2">
-                            <div className="flex flex-col gap-1">
-                                {[
-                                    { to: "/", label: "Home", end: true },
-                                    { to: "/about", label: "About" },
-                                    { to: "/portfolio", label: "Portfolio" },
-                                    { to: "/contact", label: "Contact" },
-                                ].map((item) => (
-                                    <NavLink
-                                        key={item.to}
-                                        to={item.to}
-                                        end={item.end}
-                                        onClick={() => setMenuOpen(false)}
-                                        className={({ isActive }) =>
-                                            [
-                                                "rounded-lg px-4 py-3 transition-colors duration-300",
-                                                scrolled
-                                                    ? "text-[#121212]/80 hover:bg-[#121212]/5"
-                                                    : "text-white/85 hover:bg-white/10",
-                                                isActive
-                                                    ? scrolled
-                                                        ? "text-[#121212] bg-[#121212]/5"
-                                                        : "text-white bg-white/10"
-                                                    : "",
-                                                "tracking-[0.14em] uppercase text-xs font-semibold",
-                                            ].join(" ")
-                                        }
-                                    >
-                                        {item.label}
-                                    </NavLink>
-                                ))}
-                            </div>
+                    style={{
+                        background:
+                            "linear-gradient(90deg, rgba(139,135,125,0) 0%, rgba(139,135,125,0.55) 30%, rgba(139,135,125,0.55) 70%, rgba(139,135,125,0) 100%)",
+                    }}
+                />
 
-                            <div className="mt-4 px-2">
-                                <Link
-                                    to="/contact"
-                                    onClick={() => setMenuOpen(false)}
-                                    className={[
-                                        "inline-flex w-full items-center justify-center h-11 rounded-md",
-                                        "text-xs font-semibold uppercase tracking-[0.22em] transition-all duration-300",
-                                        scrolled
-                                            ? "bg-[#121212] text-[#EFEDE8] hover:bg-[#8B877D]"
-                                            : "bg-white/90 text-[#121212] hover:bg-white",
-                                    ].join(" ")}
-                                >
-                                    Get in Touch
-                                </Link>
+                <div className="max-w-[1440px] mx-auto px-6 md:px-10">
+                    <div className="h-20 md:h-24 flex items-center justify-between">
+                        <Link
+                            to="/"
+                            className="flex items-center gap-3 group"
+                            onClick={() => setMenuOpen(false)}
+                        >
+                            <img
+                                src="/logos/THU_Design_Projects_nobg_black.png"
+                                alt="Thu Design Projects Logo"
+                                className={[
+                                    "w-auto object-contain select-none transition-all duration-500",
+                                    scrolled ? "h-28 md:h-32 opacity-95" : "h-28 md:h-28 opacity-100",
+                                    scrolled ? "" : "brightness-0 invert",
+                                    "group-hover:opacity-85",
+                                ].join(" ")}
+                            />
+                        </Link>
+
+                        {/* Desktop */}
+                        <div className="hidden md:flex flex-1 justify-end items-center gap-12">
+                            <div className="flex items-center gap-10">
+                                <NavLink to="/" className={linkClass} end>Home</NavLink>
+                                <NavLink to="/about" className={linkClass}>About</NavLink>
+                                <NavLink to="/portfolio" className={linkClass}>Portfolio</NavLink>
+                                <NavLink to="/contact" className={linkClass}>Contact</NavLink>
                             </div>
+                            <Link to="/contact" className={ctaClass}>Get in Touch</Link>
+                        </div>
+
+                        {/* Mobile Toggle */}
+                        <button
+                            type="button"
+                            className={[
+                                "md:hidden relative z-[60] inline-flex items-center justify-center h-11 w-11 transition-colors duration-300",
+                                scrolled || menuOpen ? "text-[#121212]" : "text-white",
+                            ].join(" ")}
+                            onClick={() => setMenuOpen((v) => !v)}
+                        >
+                            <span className="material-symbols-outlined text-3xl">
+                                {menuOpen ? "close" : "menu"}
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </nav>
+
+            {/* Side Drawer Overlay */}
+            <div
+                className={[
+                    "fixed inset-0 z-[55] bg-black/40 backdrop-blur-sm transition-opacity duration-500 md:hidden",
+                    menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+                ].join(" ")}
+                onClick={() => setMenuOpen(false)}
+            />
+
+            {/* Side Drawer Panel */}
+            <aside
+                className={[
+                    "fixed top-0 right-0 z-[56] h-full w-[80%] max-w-[400px] bg-[#EFEDE8] shadow-[-20px_0_50px_rgba(0,0,0,0.1)] transition-transform duration-500 ease-[0.16,1,0.3,1] md:hidden",
+                    menuOpen ? "translate-x-0" : "translate-x-full"
+                ].join(" ")}
+            >
+                <div className="flex flex-col h-full pt-32 pb-12 px-8">
+                    <span className="text-[10px] uppercase tracking-[0.5em] text-[#8B877D] font-bold mb-12">
+                        Navigation
+                    </span>
+
+                    <div className="flex flex-col gap-6">
+                        {[
+                            { to: "/", label: "Home", end: true },
+                            { to: "/about", label: "About" },
+                            { to: "/portfolio", label: "Portfolio" },
+                            { to: "/contact", label: "Contact" },
+                        ].map((item, idx) => (
+                            <NavLink
+                                key={item.to}
+                                to={item.to}
+                                end={item.end}
+                                onClick={() => setMenuOpen(false)}
+                                style={{ transitionDelay: `${idx * 50}ms` }}
+                                className={({ isActive }) =>
+                                    [
+                                        "text-3xl font-serif tracking-tight transition-all duration-500",
+                                        isActive ? "text-[#121212] italic pl-4" : "text-[#121212]/40 hover:text-[#121212]",
+                                        menuOpen ? "translate-y-0 opacity-100" : "translate-y-4 opacity-0"
+                                    ].join(" ")
+                                }
+                            >
+                                {item.label}
+                            </NavLink>
+                        ))}
+                    </div>
+
+                    <div className="mt-auto space-y-8">
+                        <div className="h-px w-full bg-[#D8D3C7]" />
+                        <Link
+                            to="/contact"
+                            onClick={() => setMenuOpen(false)}
+                            className="flex w-full items-center justify-center h-14 bg-[#121212] text-white text-xs font-bold uppercase tracking-[0.2em] hover:bg-[#8B877D] transition-colors"
+                        >
+                            Get in Touch
+                        </Link>
+
+                        <div className="flex justify-between items-center text-[9px] uppercase tracking-widest text-[#8B877D] font-bold">
+                            <span>Vancouver</span>
+                            <span>Est. 2024</span>
                         </div>
                     </div>
                 </div>
-            </div>
-        </nav>
+            </aside>
+        </>
     );
 }
