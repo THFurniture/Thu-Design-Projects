@@ -6,11 +6,6 @@ export default function Intro() {
 
   return (
     <section className="py-24 md:py-44 bg-[#F9F8F6] relative overflow-hidden">
-      {/* Decorative Background Element - Subtle Serif Initial */}
-      <span className="absolute top-0 right-[-5%] text-[30vw] font-serif text-black/[0.02] select-none pointer-events-none">
-        Studio
-      </span>
-
       <div className="container mx-auto px-6 md:px-12">
         <div className="grid grid-cols-12 gap-4 items-center">
           

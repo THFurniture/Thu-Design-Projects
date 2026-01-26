@@ -27,7 +27,7 @@ export default function ContactForm() {
     <section className="relative min-h-screen bg-[#121212] flex flex-col lg:flex-row overflow-hidden">
       
       {/* 1. The Content Side (Scrollable) */}
-      <div className="w-full lg:w-3/5 p-6 md:p-12 lg:p-24 flex flex-col justify-center z-10">
+      <div className="w-full lg:w-3/5 px-6 md:px-12 lg:px-24 py-28 md:py-32 flex flex-col justify-center z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
