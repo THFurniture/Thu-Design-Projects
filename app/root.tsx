@@ -33,6 +33,22 @@ export const links: Route.LinksFunction = () => [
   }
 ];
 
+export const meta: Route.MetaFunction = () => {
+  return [
+    // Default Open Graph tags
+    { property: "og:type", content: "website" },
+    { property: "og:site_name", content: "THU Design Projects" },
+    { property: "og:image", content: "/logos/THU Design Projects Logo White bg.png" },
+    { property: "og:image:width", content: "1200" },
+    { property: "og:image:height", content: "630" },
+    { property: "og:image:alt", content: "THU Design Projects - Luxury Residential Design Studio" },
+    // Twitter Card tags
+    { name: "twitter:card", content: "summary_large_image" },
+    { name: "twitter:image", content: "/logos/THU Design Projects Logo White bg.png" },
+    { name: "twitter:image:alt", content: "THU Design Projects - Luxury Residential Design Studio" },
+  ];
+};
+
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
