@@ -75,7 +75,7 @@ export default function Narrative() {
               {/* Main Image */}
               <div className="aspect-[3/4] overflow-hidden shadow-2xl relative z-10">
                 <img 
-                  src="/projects/king_georges_way_830/king-georges-way-830-west-vancouver-2.webp"
+                  src="/projects/king_georges_way_830/king-georges-way-830-west-vancouver-2.avif"
                   className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000"
                   alt="Architecture Detail"
                 />

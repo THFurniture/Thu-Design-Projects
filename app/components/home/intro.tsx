@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router";
 
 export default function Intro() {
-  const introImage = "/projects/groveland_road_928/groveland-road-928-west-vancouver-1.webp";
+  const introImage = "/projects/groveland_road_928/groveland-road-928-west-vancouver-1.avif";
 
   return (
     <section className="py-24 md:py-44 bg-[#F9F8F6] relative overflow-hidden">

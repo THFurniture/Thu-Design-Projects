@@ -70,7 +70,7 @@ export default function Detailing() {
               className="relative z-10 w-full md:w-4/5 aspect-[4/5] overflow-hidden shadow-2xl"
             >
               <img 
-                src="/projects/king_georges_way_815/king-georges-way-815-west-vancouver-4.webp"
+                src="/projects/king_georges_way_815/king-georges-way-815-west-vancouver-4.avif"
                 alt="Material Detail"
                 className="w-full h-full object-cover grayscale-[20%] hover:grayscale-0 transition-all duration-1000"
               />
@@ -82,7 +82,7 @@ export default function Detailing() {
               className="absolute top-0 left-0 w-32 md:w-48 aspect-square z-20 overflow-hidden shadow-xl hidden md:block border-8 border-[#F9F8F6]"
             >
               <img 
-                src="/projects/groveland_road_928/groveland-road-928-west-vancouver-3.webp"
+                src="/projects/groveland_road_928/groveland-road-928-west-vancouver-3.avif"
                 className="w-full h-full object-cover"
                 alt="Texture"
               />
@@ -94,7 +94,7 @@ export default function Detailing() {
               className="absolute bottom-0 right-0 w-40 md:w-64 aspect-[3/4] z-20 overflow-hidden shadow-xl hidden md:block border-8 border-[#F9F8F6]"
             >
               <img 
-                src="/projects/quayside_dr_680/quayside-dr-680-4405-new-westminster-3.webp"
+                src="/projects/quayside_dr_680/quayside-dr-680-4405-new-westminster-3.avif"
                 className="w-full h-full object-cover"
                 alt="Junction detail"
               />

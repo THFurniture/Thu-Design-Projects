@@ -88,7 +88,7 @@ export default function ContactForm() {
             initial={{ scale: 1.2, opacity: 0 }}
             animate={{ scale: 1, opacity: 0.7 }}
             transition={{ duration: 1.5, ease: "easeOut" }}
-            src="/projects/king_georges_way_815/king-georges-way-815-west-vancouver-4.webp" 
+            src="/projects/king_georges_way_815/king-georges-way-815-west-vancouver-4.avif" 
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-[#121212] via-transparent to-transparent" />

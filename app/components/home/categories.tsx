@@ -79,20 +79,20 @@ export default function Categories() {
     {
       label: "Residential",
       title: "Luxury Estates",
-      to: "/portfolio/luxury-estates",
-      imageUrl: "/projects/king_georges_way_815/king-georges-way-815-west-vancouver-1.webp",
+      to: "/projects?type=Residential",
+      imageUrl: "/projects/king_georges_way_815/king-georges-way-815-west-vancouver-1.avif",
     },
     {
       label: "Interior",
       title: "Private Residences",
-      to: "/portfolio/private-residences",
-      imageUrl: "/projects/quayside_dr_680/quayside-dr-680-4405-new-westminster-1.webp",
+      to: "/projects?type=Interior",
+      imageUrl: "/projects/quayside_dr_680/quayside-dr-680-4405-new-westminster-1.avif",
     },
     {
       label: "Urban",
       title: "Skyline Residences",
-      to: "/portfolio/skyline-residences",
-      imageUrl: "/projects/groveland_road_928/groveland-road-928-west-vancouver-2.webp",
+      to: "/projects?type=Urban",
+      imageUrl: "/projects/groveland_road_928/groveland-road-928-west-vancouver-2.avif",
     },
   ];
 
@@ -127,7 +127,7 @@ export default function Categories() {
             className="mt-8 md:mt-0"
           >
             <Link 
-              to="/portfolio"
+              to="/projects"
               className="text-[10px] uppercase tracking-[0.3em] font-bold border-b border-black/10 pb-2 hover:border-black transition-colors"
             >
               View All Projects

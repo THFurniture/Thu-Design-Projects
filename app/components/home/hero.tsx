@@ -30,7 +30,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10" />
         <img 
-          src="/projects/king_georges_way_830/king-georges-way-830-west-vancouver-9.webp"
+          src="/projects/king_georges_way_830/king-georges-way-830-west-vancouver-9.avif"
           alt="Luxury Architecture"
           className="h-full w-full object-cover"
         />
@@ -86,7 +86,7 @@ export default function Hero() {
 
             <div className="flex items-center gap-8">
               <Link 
-                to="/portfolio" 
+                to="/projects" 
                 className="group relative px-8 py-4 bg-white text-black text-xs uppercase tracking-[0.2em] font-bold overflow-hidden transition-transform active:scale-95"
               >
                 <span className="relative z-10">View Portfolio</span>

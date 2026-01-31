@@ -157,7 +157,7 @@ The website showcases several luxury residential projects:
 - **King Georges Way 830** - West Vancouver
 - **Quayside Drive 680** - New Westminster
 
-All project images are optimized WebP format located in `public/projects/`.
+All project images are optimized AVIF format located in `public/projects/`.
 
 ---
 

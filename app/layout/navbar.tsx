@@ -101,7 +101,7 @@ export default function Navbar() {
                             <div className="flex items-center gap-10">
                                 <NavLink to="/" className={linkClass} end>Home</NavLink>
                                 <NavLink to="/about" className={linkClass}>About</NavLink>
-                                <NavLink to="/portfolio" className={linkClass}>Portfolio</NavLink>
+                                <NavLink to="/projects" className={linkClass}>Projects</NavLink>
                                 <NavLink to="/contact" className={linkClass}>Contact</NavLink>
                             </div>
                             <Link to="/contact" className={ctaClass}>Get in Touch</Link>
@@ -149,7 +149,7 @@ export default function Navbar() {
                         {[
                             { to: "/", label: "Home", end: true },
                             { to: "/about", label: "About" },
-                            { to: "/portfolio", label: "Portfolio" },
+                            { to: "/projects", label: "Projects" },
                             { to: "/contact", label: "Contact" },
                         ].map((item, idx) => (
                             <NavLink

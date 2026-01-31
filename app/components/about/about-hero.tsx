@@ -26,7 +26,7 @@ export default function AboutHero() {
       >
         <div className="absolute inset-0 bg-black/40 z-10" /> {/* Darken overlay */}
         <img 
-          src="/projects/king_georges_way_830/king-georges-way-830-west-vancouver-3.webp"
+          src="/projects/king_georges_way_830/king-georges-way-830-west-vancouver-3.avif"
           alt="Architectural Interior"
           className="h-full w-full object-cover"
         />

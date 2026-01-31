@@ -25,7 +25,7 @@ export default function Footer() {
                         <h4 className="text-[#EFEDE8] font-bold mb-8 uppercase tracking-widest text-xs">Explore</h4>
                         <ul className="flex flex-col gap-4 text-[#EFEDE8]/60 text-sm font-light">
                             <li>
-                                <Link className="hover:text-white transition-colors" to="/portfolio">
+                                <Link className="hover:text-white transition-colors" to="/projects">
                                     Selected Work
                                 </Link>
                             </li>

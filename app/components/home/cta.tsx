@@ -32,7 +32,7 @@ export default function HomeHero() {
               <motion.img 
                 whileHover={{ scale: 1.1 }}
                 transition={{ duration: 1.5 }}
-                src="/projects/king_georges_way_815/king-georges-way-815-west-vancouver-1.webp" 
+                src="/projects/king_georges_way_815/king-georges-way-815-west-vancouver-1.avif" 
                 alt="Architecture" 
                 className="w-full h-full object-cover grayscale-[40%] group-hover:grayscale-0 transition-all duration-1000"
               />
