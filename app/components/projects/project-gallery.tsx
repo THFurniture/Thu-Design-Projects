@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { useState, useEffect, useRef, useCallback } from "react";
 import type { Project } from "~/data/projects";
 
 interface ProjectGalleryProps {
@@ -9,6 +9,25 @@ interface ProjectGalleryProps {
 export default function ProjectGallery({ project }: ProjectGalleryProps) {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
   const [selectedIndex, setSelectedIndex] = useState<number>(0);
+  const [zoom, setZoom] = useState(1);
+  const [pan, setPan] = useState({ x: 0, y: 0 });
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragStart, setDragStart] = useState({ x: 0, y: 0 });
+  
+  const touchStartX = useRef<number | null>(null);
+  const touchStartY = useRef<number | null>(null);
+  const initialPinchDistance = useRef<number | null>(null);
+  const initialZoom = useRef<number>(1);
+  const imageContainerRef = useRef<HTMLDivElement>(null);
+  const zoomRef = useRef(1);
+  
+  const MIN_ZOOM = 1;
+  const MAX_ZOOM = 2.5;
+
+  // Keep zoom ref in sync with state
+  useEffect(() => {
+    zoomRef.current = zoom;
+  }, [zoom]);
 
   if (!project.hasImages) {
     return <PlaceholderGallery project={project} />;
@@ -17,23 +36,284 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
   const openLightbox = (image: string, index: number) => {
     setSelectedImage(image);
     setSelectedIndex(index);
+    // Reset zoom and pan when opening new image
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
   };
 
-  const closeLightbox = () => {
+  const closeLightbox = useCallback(() => {
     setSelectedImage(null);
+  }, []);
+
+  const nextImage = useCallback(() => {
+    setSelectedIndex((currentIndex) => {
+      const nextIndex = (currentIndex + 1) % project.images.length;
+      setSelectedImage(project.images[nextIndex]);
+      // Reset zoom and pan when changing images
+      setZoom(1);
+      setPan({ x: 0, y: 0 });
+      return nextIndex;
+    });
+  }, [project.images]);
+
+  const prevImage = useCallback(() => {
+    setSelectedIndex((currentIndex) => {
+      const prevIndex = (currentIndex - 1 + project.images.length) % project.images.length;
+      setSelectedImage(project.images[prevIndex]);
+      // Reset zoom and pan when changing images
+      setZoom(1);
+      setPan({ x: 0, y: 0 });
+      return prevIndex;
+    });
+  }, [project.images]);
+
+  // Calculate distance between two touches
+  const getTouchDistance = (
+    touch1: { clientX: number; clientY: number },
+    touch2: { clientX: number; clientY: number }
+  ): number => {
+    const dx = touch2.clientX - touch1.clientX;
+    const dy = touch2.clientY - touch1.clientY;
+    return Math.sqrt(dx * dx + dy * dy);
   };
 
-  const nextImage = () => {
-    const nextIndex = (selectedIndex + 1) % project.images.length;
-    setSelectedIndex(nextIndex);
-    setSelectedImage(project.images[nextIndex]);
+  // Calculate center point between two touches
+  const getTouchCenter = (
+    touch1: { clientX: number; clientY: number },
+    touch2: { clientX: number; clientY: number }
+  ) => {
+    return {
+      x: (touch1.clientX + touch2.clientX) / 2,
+      y: (touch1.clientY + touch2.clientY) / 2,
+    };
   };
 
-  const prevImage = () => {
-    const prevIndex = (selectedIndex - 1 + project.images.length) % project.images.length;
-    setSelectedIndex(prevIndex);
-    setSelectedImage(project.images[prevIndex]);
+  // Constrain pan to image boundaries
+  const constrainPan = useCallback((newPan: { x: number; y: number }, currentZoom: number) => {
+    if (!imageContainerRef.current) return newPan;
+    
+    const container = imageContainerRef.current;
+    const img = container.querySelector('img');
+    if (!img) return newPan;
+
+    const containerRect = container.getBoundingClientRect();
+    const imgRect = img.getBoundingClientRect();
+    
+    const scaledWidth = imgRect.width * currentZoom;
+    const scaledHeight = imgRect.height * currentZoom;
+    
+    const maxX = Math.max(0, (scaledWidth - containerRect.width) / 2);
+    const maxY = Math.max(0, (scaledHeight - containerRect.height) / 2);
+    
+    return {
+      x: Math.max(-maxX, Math.min(maxX, newPan.x)),
+      y: Math.max(-maxY, Math.min(maxY, newPan.y)),
+    };
+  }, []);
+
+  // Zoom functions
+  const handleZoom = useCallback((newZoom: number, centerX?: number, centerY?: number) => {
+    const currentZoom = zoomRef.current;
+    const clampedZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, newZoom));
+    
+    if (clampedZoom === 1) {
+      setPan({ x: 0, y: 0 });
+      setZoom(1);
+      return;
+    }
+    
+    if (centerX !== undefined && centerY !== undefined && imageContainerRef.current) {
+      const container = imageContainerRef.current;
+      const containerRect = container.getBoundingClientRect();
+      const centerXRelative = centerX - containerRect.left - containerRect.width / 2;
+      const centerYRelative = centerY - containerRect.top - containerRect.height / 2;
+      
+      const zoomRatio = clampedZoom / currentZoom;
+      const newPanX = centerXRelative * (1 - zoomRatio);
+      const newPanY = centerYRelative * (1 - zoomRatio);
+      
+      setPan((currentPan) => constrainPan(
+        { x: currentPan.x + newPanX, y: currentPan.y + newPanY },
+        clampedZoom
+      ));
+    } else {
+      setPan((currentPan) => constrainPan(currentPan, clampedZoom));
+    }
+    
+    setZoom(clampedZoom);
+  }, [constrainPan]);
+
+  const resetZoom = useCallback(() => {
+    setZoom(1);
+    setPan({ x: 0, y: 0 });
+  }, []);
+
+  const toggleZoom = useCallback((clientX: number, clientY: number) => {
+    const currentZoom = zoomRef.current;
+    if (currentZoom === 1) {
+      handleZoom(2, clientX, clientY);
+    } else {
+      resetZoom();
+    }
+  }, [handleZoom, resetZoom]);
+
+  // Keyboard navigation and prevent body scroll when lightbox is open
+  useEffect(() => {
+    if (!selectedImage) {
+      document.body.style.overflow = "";
+      return;
+    }
+
+    // Prevent body scroll when lightbox is open
+    document.body.style.overflow = "hidden";
+
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        closeLightbox();
+      } else if (e.key === "ArrowLeft") {
+        e.preventDefault();
+        prevImage();
+      } else if (e.key === "ArrowRight") {
+        e.preventDefault();
+        nextImage();
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = "";
+    };
+  }, [selectedImage, closeLightbox, prevImage, nextImage]);
+
+  // Touch handlers for swipe gestures and pinch-to-zoom
+  const handleTouchStart = (e: React.TouchEvent) => {
+    if (e.touches.length === 1) {
+      // Single touch - prepare for swipe navigation
+      touchStartX.current = e.touches[0].clientX;
+      touchStartY.current = e.touches[0].clientY;
+      initialPinchDistance.current = null;
+    } else if (e.touches.length === 2) {
+      // Two touches - prepare for pinch-to-zoom
+      e.preventDefault();
+      const distance = getTouchDistance(e.touches[0], e.touches[1]);
+      initialPinchDistance.current = distance;
+      initialZoom.current = zoomRef.current;
+      touchStartX.current = null;
+      touchStartY.current = null;
+    }
   };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    if (e.touches.length === 2 && initialPinchDistance.current !== null) {
+      // Pinch-to-zoom
+      e.preventDefault();
+      const distance = getTouchDistance(e.touches[0], e.touches[1]);
+      const scale = distance / initialPinchDistance.current;
+      const newZoom = initialZoom.current * scale;
+      const center = getTouchCenter(e.touches[0], e.touches[1]);
+      handleZoom(newZoom, center.x, center.y);
+    } else if (e.touches.length === 1) {
+      const currentZoom = zoomRef.current;
+      if (currentZoom > 1 && isDragging) {
+        // Pan when zoomed
+        e.preventDefault();
+        const touch = e.touches[0];
+        const deltaX = touch.clientX - dragStart.x;
+        const deltaY = touch.clientY - dragStart.y;
+        setPan((currentPan) => constrainPan(
+          { x: currentPan.x + deltaX, y: currentPan.y + deltaY },
+          currentZoom
+        ));
+        setDragStart({ x: touch.clientX, y: touch.clientY });
+      } else if (touchStartX.current !== null && touchStartY.current !== null) {
+        // Single touch swipe detection (only when not zoomed)
+        const deltaX = Math.abs(e.touches[0].clientX - touchStartX.current);
+        const deltaY = Math.abs(e.touches[0].clientY - touchStartY.current);
+        
+        // If horizontal swipe is more significant than vertical, prevent scroll
+        if (currentZoom === 1 && deltaX > deltaY) {
+          e.preventDefault();
+        }
+      }
+    }
+  };
+
+  const handleTouchEnd = useCallback((e: React.TouchEvent) => {
+    const currentZoom = zoomRef.current;
+    if (e.touches.length === 0) {
+      // All touches ended
+      if (touchStartX.current !== null && touchStartY.current !== null && currentZoom === 1) {
+        // Single touch swipe navigation (only when not zoomed)
+        const touchEndX = e.changedTouches[0].clientX;
+        const touchEndY = e.changedTouches[0].clientY;
+        const deltaX = touchEndX - touchStartX.current;
+        const deltaY = touchEndY - touchStartY.current;
+        const minSwipeDistance = 50;
+
+        if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+          if (deltaX > 0) {
+            prevImage();
+          } else {
+            nextImage();
+          }
+        }
+      }
+      
+      initialPinchDistance.current = null;
+      touchStartX.current = null;
+      touchStartY.current = null;
+      setIsDragging(false);
+    } else if (e.touches.length === 1 && currentZoom > 1) {
+      // Continue dragging with remaining touch
+      setIsDragging(true);
+      setDragStart({ x: e.touches[0].clientX, y: e.touches[0].clientY });
+    }
+  }, [prevImage, nextImage]);
+
+  // Mouse wheel zoom
+  const handleWheel = useCallback((e: React.WheelEvent) => {
+    if (e.ctrlKey || e.metaKey) {
+      e.preventDefault();
+      const currentZoom = zoomRef.current;
+      const delta = e.deltaY > 0 ? -0.1 : 0.1;
+      const newZoom = Math.max(MIN_ZOOM, Math.min(MAX_ZOOM, currentZoom + delta));
+      handleZoom(newZoom, e.clientX, e.clientY);
+    }
+  }, [handleZoom]);
+
+  // Mouse drag for panning when zoomed
+  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+    const currentZoom = zoomRef.current;
+    if (currentZoom > 1 && e.button === 0) {
+      e.preventDefault();
+      setIsDragging(true);
+      setDragStart({ x: e.clientX, y: e.clientY });
+    }
+  }, []);
+
+  const handleMouseMove = useCallback((e: React.MouseEvent) => {
+    const currentZoom = zoomRef.current;
+    if (isDragging && currentZoom > 1) {
+      const deltaX = e.clientX - dragStart.x;
+      const deltaY = e.clientY - dragStart.y;
+      setPan((currentPan) => constrainPan(
+        { x: currentPan.x + deltaX, y: currentPan.y + deltaY },
+        currentZoom
+      ));
+      setDragStart({ x: e.clientX, y: e.clientY });
+    }
+  }, [isDragging, dragStart, constrainPan]);
+
+  const handleMouseUp = useCallback(() => {
+    setIsDragging(false);
+  }, []);
+
+  // Double-click zoom toggle
+  const handleDoubleClick = useCallback((e: React.MouseEvent) => {
+    e.preventDefault();
+    toggleZoom(e.clientX, e.clientY);
+  }, [toggleZoom]);
 
   return (
     <>
@@ -154,22 +434,86 @@ export default function ProjectGallery({ project }: ProjectGalleryProps) {
               <span className="material-symbols-outlined text-4xl">chevron_right</span>
             </button>
 
-            {/* Image */}
+            {/* Image Container */}
             <motion.div
               key={selectedImage}
               initial={{ opacity: 0, scale: 0.95 }}
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.95 }}
               transition={{ duration: 0.3 }}
-              className="max-w-[90vw] max-h-[85vh]"
-              onClick={(e) => e.stopPropagation()}
+              className="max-w-[90vw] max-h-[85vh] touch-none cursor-grab active:cursor-grabbing overflow-hidden"
+              onClick={(e) => {
+                e.stopPropagation();
+                // Only close on click if not zoomed and not dragging
+                if (zoom === 1 && !isDragging) {
+                  // Allow click-through for navigation buttons
+                }
+              }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onWheel={handleWheel}
+              onMouseDown={handleMouseDown}
+              onMouseMove={handleMouseMove}
+              onMouseUp={handleMouseUp}
+              onMouseLeave={handleMouseUp}
+              onDoubleClick={handleDoubleClick}
+              ref={imageContainerRef}
             >
-              <img
-                src={selectedImage}
-                alt={`${project.name} - Full view`}
-                className="max-w-full max-h-[85vh] object-contain"
-              />
+              <motion.div
+                animate={{
+                  scale: zoom,
+                  x: pan.x,
+                  y: pan.y,
+                }}
+                transition={{ type: "spring", stiffness: 300, damping: 30 }}
+                className="origin-center"
+                style={{ willChange: zoom > 1 ? "transform" : "auto" }}
+              >
+                <img
+                  src={selectedImage}
+                  alt={`${project.name} - Full view`}
+                  className="max-w-[90vw] max-h-[85vh] object-contain select-none pointer-events-none"
+                  draggable={false}
+                />
+              </motion.div>
             </motion.div>
+
+            {/* Zoom Controls */}
+            {zoom > 1 && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="absolute top-20 left-6 z-50 flex flex-col gap-2"
+              >
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    resetZoom();
+                  }}
+                  className="w-10 h-10 flex items-center justify-center bg-black/50 hover:bg-black/70 text-white rounded transition-colors"
+                  title="Reset zoom"
+                >
+                  <span className="material-symbols-outlined text-xl">fit_screen</span>
+                </button>
+                <div className="w-10 h-10 flex items-center justify-center bg-black/50 text-white rounded text-xs font-medium">
+                  {Math.round(zoom * 100)}%
+                </div>
+              </motion.div>
+            )}
+
+            {/* Zoom Hint */}
+            {zoom === 1 && (
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 1 }}
+                className="absolute bottom-20 left-1/2 -translate-x-1/2 z-50 bg-black/50 text-white/70 text-xs px-4 py-2 rounded backdrop-blur-sm pointer-events-none"
+              >
+                <span className="hidden md:inline">Double-click or Ctrl+Scroll to zoom</span>
+                <span className="md:hidden">Pinch to zoom</span>
+              </motion.div>
+            )}
 
             {/* Thumbnails */}
             <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-50 flex gap-2 overflow-x-auto max-w-[90vw] px-4">

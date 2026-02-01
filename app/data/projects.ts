@@ -33,11 +33,11 @@ function generateImagePaths(folder: string, baseName: string, count: number, ext
   );
 }
 
-// Projects with images (7 projects)
+// Projects with images (12 projects)
 const projectsWithImages: Project[] = [
   {
     id: "king-georges-way-830",
-    name: "King Georges Way 830",
+    name: "King Georges Way",
     slug: "king-georges-way-830",
     address: "830 King Georges Way",
     location: "West Vancouver",
@@ -50,7 +50,7 @@ const projectsWithImages: Project[] = [
   },
   {
     id: "king-georges-way-815",
-    name: "King Georges Way 815",
+    name: "King Georges Way",
     slug: "king-georges-way-815",
     address: "815 King Georges Way",
     location: "West Vancouver",
@@ -63,7 +63,7 @@ const projectsWithImages: Project[] = [
   },
   {
     id: "groveland-road-928",
-    name: "Groveland Road 928",
+    name: "Groveland Road",
     slug: "groveland-road-928",
     address: "928 Groveland Road",
     location: "West Vancouver",
@@ -75,7 +75,7 @@ const projectsWithImages: Project[] = [
   },
   {
     id: "quayside-dr-680",
-    name: "Quayside Drive 680",
+    name: "Quayside Drive",
     slug: "quayside-drive-680",
     address: "680 Quayside Drive, Unit 4405",
     location: "New Westminster",
@@ -87,7 +87,7 @@ const projectsWithImages: Project[] = [
   },
   {
     id: "27th-ave-13560",
-    name: "27th Avenue 13560",
+    name: "27th Avenue",
     slug: "27th-avenue-13560",
     address: "13560 27th Avenue",
     location: "Surrey",
@@ -99,7 +99,7 @@ const projectsWithImages: Project[] = [
   },
   {
     id: "alberni-st-1568",
-    name: "Alberni Street 1568",
+    name: "Alberni Street",
     slug: "alberni-street-1568",
     address: "1568 Alberni Street, Unit 4001",
     location: "Vancouver",
@@ -112,84 +112,85 @@ const projectsWithImages: Project[] = [
   },
   {
     id: "angus-dr-8083",
-    name: "Angus Drive 8083",
+    name: "Angus Drive",
     slug: "angus-drive-8083",
     address: "8083 Angus Drive",
     location: "Vancouver",
     projectType: "Residential",
     // Note: This project starts at image 2 (no image 1)
     images: [
-      "/projects/angus_dr_8083/angus-dr-8083-vancouver-2.webp",
-      "/projects/angus_dr_8083/angus-dr-8083-vancouver-3.webp",
-      "/projects/angus_dr_8083/angus-dr-8083-vancouver-4.webp",
-      "/projects/angus_dr_8083/angus-dr-8083-vancouver-5.webp",
+      "/projects/angus_dr_8083/angus-dr-8083-vancouver-1.avif",
+      "/projects/angus_dr_8083/angus-dr-8083-vancouver-2.avif",
+      "/projects/angus_dr_8083/angus-dr-8083-vancouver-3.avif",
+      "/projects/angus_dr_8083/angus-dr-8083-vancouver-4.avif",
+      "/projects/angus_dr_8083/angus-dr-8083-vancouver-5.avif",
     ],
-    thumbnail: "/projects/angus_dr_8083/angus-dr-8083-vancouver-2.webp",
+    thumbnail: "/projects/angus_dr_8083/angus-dr-8083-vancouver-1.avif",
     hasImages: true,
     year: 2023,
   },
-];
-
-// Placeholder projects (23 projects) - will be updated when images are added
-const placeholderProjects: Project[] = [
   {
     id: "bramwell-road-1421",
-    name: "Bramwell Road 1421",
+    name: "Bramwell Road",
     slug: "bramwell-road-1421",
     address: "1421 Bramwell Road",
     location: "West Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("bramwell_rd_1421", "bramwell-rd-1421-west-vancouver", 5),
+    thumbnail: "/projects/bramwell_rd_1421/bramwell-rd-1421-west-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "burkehill-road-4129",
-    name: "Burkehill Road 4129",
+    name: "Burkehill Road",
     slug: "burkehill-road-4129",
     address: "4129 Burkehill Road",
     location: "West Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("burkehill-rd-4129", "burkehill-rd-4129-west-vancouver", 4),
+    thumbnail: "/projects/burkehill-rd-4129/burkehill-rd-4129-west-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "howe-st-1480-ph7",
-    name: "Howe St 1480 Penthouse",
+    name: "Howe St Penthouse",
     slug: "howe-st-1480-ph7",
     address: "1480 Howe Street, Unit PH7",
     location: "Vancouver",
     projectType: "Urban",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("howe-st-1480", "howe-st-1480-vancouver", 4),
+    thumbnail: "/projects/howe-st-1480/howe-st-1480-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "lyon-road-6420",
-    name: "Lyon Road 6420",
+    name: "Lyon Road",
     slug: "lyon-road-6420",
     address: "6420 Lyon Road",
     location: "Delta",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("lyon-rd-6420", "lyon-rd-6420-delta", 6),
+    thumbnail: "/projects/lyon-rd-6420/lyon-rd-6420-delta-1.avif",
+    hasImages: true,
   },
   {
     id: "blenheim-st-4741",
-    name: "Blenheim St 4741",
+    name: "Blenheim St",
     slug: "blenheim-st-4741",
     address: "4741 Blenheim Street",
     location: "Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("blenheim_st_4741", "blenheim-st-4741-vancouver", 8),
+    thumbnail: "/projects/blenheim_st_4741/blenheim-st-4741-vancouver-1.avif",
+    hasImages: true,
   },
+];
+
+// Placeholder projects (18 projects) - will be updated when images are added
+const placeholderProjects: Project[] = [
   {
     id: "cambie-st-885-2500",
-    name: "Cambie St 885 (2500)",
+    name: "Cambie St",
     slug: "cambie-st-885-2500",
     address: "885 Cambie Street, Unit 2500",
     location: "Vancouver",
@@ -200,7 +201,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "fairbrook-cres-8500",
-    name: "Fairbrook Cres 8500",
+    name: "Fairbrook Cres",
     slug: "fairbrook-cres-8500",
     address: "8500 Fairbrook Crescent",
     location: "Richmond",
@@ -211,7 +212,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "esplanade-ave-1029",
-    name: "Esplanade Ave 1029",
+    name: "Esplanade Ave",
     slug: "esplanade-ave-1029",
     address: "1029 Esplanade Avenue",
     location: "West Vancouver",
@@ -222,7 +223,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "fairfax-cres-8531",
-    name: "Fairfax Cres 8531",
+    name: "Fairfax Cres",
     slug: "fairfax-cres-8531",
     address: "8531 Fairfax Crescent",
     location: "Richmond",
@@ -233,7 +234,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "finn-rd-8731",
-    name: "Finn Rd 8731",
+    name: "Finn Rd",
     slug: "finn-rd-8731",
     address: "8731 Finn Road",
     location: "Richmond",
@@ -244,7 +245,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "mathers-ave-2495",
-    name: "Mathers Ave 2495",
+    name: "Mathers Ave",
     slug: "mathers-ave-2495",
     address: "2495 Mathers Avenue",
     location: "West Vancouver",
@@ -255,7 +256,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "trumond-ave-3428",
-    name: "Trumond Ave 3428",
+    name: "Trumond Ave",
     slug: "trumond-ave-3428",
     address: "3428 Trumond Avenue",
     location: "Richmond",
@@ -266,7 +267,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "west-61st-ave-2077",
-    name: "West 61st Ave 2077",
+    name: "West 61st Ave",
     slug: "west-61st-ave-2077",
     address: "2077 West 61st Avenue",
     location: "Vancouver",
@@ -277,7 +278,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "chartwell-drive-1335",
-    name: "Chartwell Drive 1335",
+    name: "Chartwell Drive",
     slug: "chartwell-drive-1335",
     address: "1335 Chartwell Drive",
     location: "West Vancouver",
@@ -288,7 +289,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "claysmith-rd-8128",
-    name: "Claysmith Rd 8128",
+    name: "Claysmith Rd",
     slug: "claysmith-rd-8128",
     address: "8128 Claysmith Road",
     location: "Richmond",
@@ -299,7 +300,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "gilstone-road-1112",
-    name: "Gilstone Road 1112",
+    name: "Gilstone Road",
     slug: "gilstone-road-1112",
     address: "1112 Gilstone Road",
     location: "West Vancouver",
@@ -310,7 +311,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "robson-st-1408-2901",
-    name: "Robson St 1408 (2901)",
+    name: "Robson St",
     slug: "robson-st-1408-2901",
     address: "1408 Robson Street, Unit 2901",
     location: "Vancouver",
@@ -321,7 +322,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "sandhurst-place-1416",
-    name: "Sandhurst Place 1416",
+    name: "Sandhurst Place",
     slug: "sandhurst-place-1416",
     address: "1416 Sandhurst Place",
     location: "West Vancouver",
@@ -332,7 +333,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "west-28th-ave-1528",
-    name: "West 28th Ave 1528",
+    name: "West 28th Ave",
     slug: "west-28th-ave-1528",
     address: "1528 West 28th Avenue",
     location: "Vancouver",
@@ -343,7 +344,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "balfour-ave-1263",
-    name: "Balfour Ave 1263",
+    name: "Balfour Ave",
     slug: "balfour-ave-1263",
     address: "1263 Balfour Avenue",
     location: "Vancouver",
@@ -354,7 +355,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "bramwell-road-1430",
-    name: "Bramwell Road 1430",
+    name: "Bramwell Road",
     slug: "bramwell-road-1430",
     address: "1430 Bramwell Road",
     location: "West Vancouver",
@@ -365,7 +366,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "crestline-1095",
-    name: "Crestline 1095",
+    name: "Crestline",
     slug: "crestline-1095",
     address: "1095 Crestline",
     location: "West Vancouver",
@@ -376,7 +377,7 @@ const placeholderProjects: Project[] = [
   },
   {
     id: "west-georgia-st-1128-4903",
-    name: "West Georgia St 1128 (4903)",
+    name: "West Georgia St",
     slug: "west-georgia-st-1128-4903",
     address: "1128 West Georgia Street, Unit 4903",
     location: "Vancouver",
