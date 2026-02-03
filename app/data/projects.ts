@@ -33,7 +33,7 @@ function generateImagePaths(folder: string, baseName: string, count: number, ext
   );
 }
 
-// Projects with images (12 projects)
+// Projects with images (21 projects)
 const projectsWithImages: Project[] = [
   {
     id: "king-georges-way-830",
@@ -184,10 +184,6 @@ const projectsWithImages: Project[] = [
     thumbnail: "/projects/blenheim_st_4741/blenheim-st-4741-vancouver-1.avif",
     hasImages: true,
   },
-];
-
-// Placeholder projects (18 projects) - will be updated when images are added
-const placeholderProjects: Project[] = [
   {
     id: "cambie-st-885-2500",
     name: "Cambie St",
@@ -195,9 +191,9 @@ const placeholderProjects: Project[] = [
     address: "885 Cambie Street, Unit 2500",
     location: "Vancouver",
     projectType: "Urban",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("cambie_st_885", "cambie-st-885-2500-vancouver", 8),
+    thumbnail: "/projects/cambie_st_885/cambie-st-885-2500-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "fairbrook-cres-8500",
@@ -206,9 +202,9 @@ const placeholderProjects: Project[] = [
     address: "8500 Fairbrook Crescent",
     location: "Richmond",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("fairbrook_cres_8500", "fairbrook-cres-8500-richmond", 8),
+    thumbnail: "/projects/fairbrook_cres_8500/fairbrook-cres-8500-richmond-1.avif",
+    hasImages: true,
   },
   {
     id: "esplanade-ave-1029",
@@ -217,9 +213,9 @@ const placeholderProjects: Project[] = [
     address: "1029 Esplanade Avenue",
     location: "West Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("esplanada_ave_1029", "esplanade-ave-1029-west-vancouver", 7),
+    thumbnail: "/projects/esplanada_ave_1029/esplanade-ave-1029-west-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "fairfax-cres-8531",
@@ -228,9 +224,9 @@ const placeholderProjects: Project[] = [
     address: "8531 Fairfax Crescent",
     location: "Richmond",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("fairfax_cres_8531", "fairfax-cres-8531-richmond", 11),
+    thumbnail: "/projects/fairfax_cres_8531/fairfax-cres-8531-richmond-1.avif",
+    hasImages: true,
   },
   {
     id: "finn-rd-8731",
@@ -239,9 +235,9 @@ const placeholderProjects: Project[] = [
     address: "8731 Finn Road",
     location: "Richmond",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("finn_rd_8731", "finn-rd-8731-richmond", 8),
+    thumbnail: "/projects/finn_rd_8731/finn-rd-8731-richmond-1.avif",
+    hasImages: true,
   },
   {
     id: "mathers-ave-2495",
@@ -250,9 +246,9 @@ const placeholderProjects: Project[] = [
     address: "2495 Mathers Avenue",
     location: "West Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("mathers_ave_2495", "mathers-ave-2495-west-vancouver", 7),
+    thumbnail: "/projects/mathers_ave_2495/mathers-ave-2495-west-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "trumond-ave-3428",
@@ -261,9 +257,9 @@ const placeholderProjects: Project[] = [
     address: "3428 Trumond Avenue",
     location: "Richmond",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("trumond_ave_3428", "trumond-ave-3428-richmond", 9),
+    thumbnail: "/projects/trumond_ave_3428/trumond-ave-3428-richmond-1.avif",
+    hasImages: true,
   },
   {
     id: "west-61st-ave-2077",
@@ -272,9 +268,9 @@ const placeholderProjects: Project[] = [
     address: "2077 West 61st Avenue",
     location: "Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("w_61st_ave_2077", "w-61st-ave-2077-vancouver", 5),
+    thumbnail: "/projects/w_61st_ave_2077/w-61st-ave-2077-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "chartwell-drive-1335",
@@ -283,10 +279,14 @@ const placeholderProjects: Project[] = [
     address: "1335 Chartwell Drive",
     location: "West Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("chartwell_dr_1335", "chartwell-dr-1335-west-vancouver", 7),
+    thumbnail: "/projects/chartwell_dr_1335/chartwell-dr-1335-west-vancouver-1.avif",
+    hasImages: true,
   },
+];
+
+// Placeholder projects (9 projects) - will be updated when images are added
+const placeholderProjects: Project[] = [
   {
     id: "claysmith-rd-8128",
     name: "Claysmith Rd",
