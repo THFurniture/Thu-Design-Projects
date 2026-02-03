@@ -33,7 +33,7 @@ function generateImagePaths(folder: string, baseName: string, count: number, ext
   );
 }
 
-// Projects with images (27 projects)
+// Projects with images (30 projects)
 const projectsWithImages: Project[] = [
   {
     id: "king-georges-way-830",
@@ -349,10 +349,6 @@ const projectsWithImages: Project[] = [
     thumbnail: "/projects/balfour_ave_1263/balfour-ave-1263-vancouver-1.avif",
     hasImages: true,
   },
-];
-
-// Placeholder projects (3 projects) - will be updated when images are added
-const placeholderProjects: Project[] = [
   {
     id: "bramwell-road-1430",
     name: "Bramwell Road",
@@ -360,20 +356,20 @@ const placeholderProjects: Project[] = [
     address: "1430 Bramwell Road",
     location: "West Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("bramwell_rd_1430", "bramwell-rd-1430-west-vancouver", 6),
+    thumbnail: "/projects/bramwell_rd_1430/bramwell-rd-1430-west-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "crestline-1095",
-    name: "Crestline",
+    name: "Crestline Road",
     slug: "crestline-1095",
-    address: "1095 Crestline",
+    address: "1095 Crestline Road",
     location: "West Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("crestline_rd_1095", "crestline-rd-1095-west-vancouver", 5),
+    thumbnail: "/projects/crestline_rd_1095/crestline-rd-1095-west-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "west-georgia-st-1128-4903",
@@ -382,11 +378,14 @@ const placeholderProjects: Project[] = [
     address: "1128 West Georgia Street, Unit 4903",
     location: "Vancouver",
     projectType: "Urban",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("w_georgia_st_1128", "w-georgia-st-1128-4903-vancouver", 10),
+    thumbnail: "/projects/w_georgia_st_1128/w-georgia-st-1128-4903-vancouver-1.avif",
+    hasImages: true,
   },
 ];
+
+// Placeholder projects (0 projects) - all projects now have images
+const placeholderProjects: Project[] = [];
 
 // All projects combined
 export const projects: Project[] = [...projectsWithImages, ...placeholderProjects];
