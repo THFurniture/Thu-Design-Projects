@@ -4,19 +4,18 @@ import type { Project } from "~/data/projects";
 
 interface ProjectCardProps {
   project: Project;
-  index: number;
 }
 
-export default function ProjectCard({ project, index }: ProjectCardProps) {
+export default function ProjectCard({ project }: ProjectCardProps) {
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-50px" }}
+      layout="position"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
       transition={{ 
-        duration: 0.8, 
-        delay: index * 0.1, 
-        ease: [0.215, 0.61, 0.355, 1] 
+        opacity: { duration: 0.3 },
+        layout: { duration: 0.4, ease: [0.4, 0, 0.2, 1] }
       }}
       className="group"
     >
@@ -27,13 +26,11 @@ export default function ProjectCard({ project, index }: ProjectCardProps) {
         {/* Image Container */}
         <div className="aspect-[4/5] w-full overflow-hidden">
           {project.hasImages ? (
-            <motion.img
-              whileHover={{ scale: 1.08 }}
-              transition={{ duration: 1.2, ease: [0.33, 1, 0.68, 1] }}
+            <img
               src={project.thumbnail}
               alt={project.name}
               loading="lazy"
-              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-700 grayscale-[20%] group-hover:grayscale-0"
+              className="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition-all duration-700 ease-out grayscale-[20%] group-hover:grayscale-0"
             />
           ) : (
             <PlaceholderImage projectType={project.projectType} />

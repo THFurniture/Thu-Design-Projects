@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
 import { useRef, useState, useMemo, useEffect } from "react";
 import { useSearchParams } from "react-router";
 import type { Route } from "./+types/projects";
@@ -67,14 +67,13 @@ export default function Projects() {
           />
 
           {/* Projects Grid */}
-          <motion.div
-            layout
-            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8"
-          >
-            {filteredProjects.map((project, index) => (
-              <ProjectCard key={project.id} project={project} index={index} />
-            ))}
-          </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <AnimatePresence mode="popLayout">
+              {filteredProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </AnimatePresence>
+          </div>
 
           {/* Empty State */}
           {filteredProjects.length === 0 && (
@@ -133,15 +132,13 @@ function ProjectsHero() {
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-10" />
         <img
-          src="/projects/king_georges_way_830/king-georges-way-830-west-vancouver-5.avif"
+          src="/projects/sandhurst_pl_1416/sandhurst-pl-1416-west-vancouver-4.avif"
           alt="Projects Background"
           className="h-full w-full object-cover"
         />
       </motion.div>
 
-      {/* Noise Texture */}
-      <div className="absolute inset-0 z-10 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-
+  
       {/* Content */}
       <div className="container mx-auto px-6 md:px-12 relative z-20 pb-16 md:pb-24">
         <motion.div
@@ -167,21 +164,6 @@ function ProjectsHero() {
           </p>
         </motion.div>
       </div>
-
-      {/* Scroll Indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 flex flex-col items-center gap-2"
-      >
-        <span className="text-white/40 text-[9px] uppercase tracking-[0.3em]">Scroll</span>
-        <motion.div
-          animate={{ y: [0, 8, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="w-[1px] h-8 bg-gradient-to-b from-white/40 to-transparent"
-        />
-      </motion.div>
     </section>
   );
 }

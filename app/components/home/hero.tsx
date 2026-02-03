@@ -59,7 +59,7 @@ export default function Hero() {
             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
             style={{ opacity }}
           >
-            <h1 className="text-white text-6xl md:text-9xl font-serif leading-[0.9] mb-8">
+            <h1 className="text-white text-6xl md:text-8xl font-serif leading-[0.9] mb-8">
               Redefining <br />
               <span className="italic font-light text-white/90">West Coast</span>{" "}
               <span className="relative">

@@ -10,17 +10,21 @@ type CategoryCardProps = {
 };
 
 function CategoryCard({ label, title, to, imageUrl, index }: CategoryCardProps) {
-  // We'll vary the heights based on the index to create a natural, editorial flow
-  const aspectRatios = ["aspect-[3/4]", "aspect-[4/5]", "aspect-[3/4]"];
-  const mtClasses = ["mt-0", "mt-12 md:mt-24", "mt-0"];
+  // Balanced layout with moderate offsets
+  // First row (0,1,2): Middle one (1) dropped slightly
+  // Second row (3,4): Centered. Left one (3) normal, Right one (4) dropped slightly?
+  // Let's just create a nice rhythm: 0:normal, 1:down, 2:normal, 3:normal, 4:down
+  const mtClasses = ["mt-0", "mt-12 md:mt-24", "mt-0", "mt-0", "mt-12 md:mt-24"];
+  // Aspect ratios: mix of 3/4 and 4/5
+  const aspectRatios = ["aspect-[3/4]", "aspect-[4/5]", "aspect-[3/4]", "aspect-[3/4]", "aspect-[4/5]"];
 
   return (
     <motion.div
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 60 }}
       whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 1, delay: index * 0.2, ease: [0.215, 0.61, 0.355, 1] }}
-      className={`relative w-full ${mtClasses[index]}`}
+      viewport={{ once: true, margin: "-100px" }}
+      transition={{ duration: 1, delay: (index % 3) * 0.1, ease: [0.215, 0.61, 0.355, 1] }}
+      className={`relative w-full md:w-[45%] lg:w-[30%] ${mtClasses[index]}`}
     >
       <Link to={to} className="group block relative overflow-hidden bg-[#1A1A1A]">
         {/* Image Container */}
@@ -77,22 +81,34 @@ function CategoryCard({ label, title, to, imageUrl, index }: CategoryCardProps) 
 export default function Categories() {
   const projects = [
     {
-      label: "Residential",
+      label: "Estate",
       title: "Luxury Estates",
-      to: "/projects?type=Residential",
+      to: "/projects?type=Luxury Estates",
       imageUrl: "/projects/king_georges_way_815/king-georges-way-815-west-vancouver-1.avif",
     },
     {
-      label: "Interior",
-      title: "Private Residences",
-      to: "/projects?type=Interior",
-      imageUrl: "/projects/quayside_dr_680/quayside-dr-680-4405-new-westminster-1.avif",
+      label: "Residential",
+      title: "Single-Family Homes",
+      to: "/projects?type=Single-Family Homes",
+      imageUrl: "/projects/esplanada_ave_1029/esplanade-ave-1029-west-vancouver-1.avif",
+    },
+    {
+      label: "Multi-Unit",
+      title: "Townhouses & Duplexes",
+      to: "/projects?type=Townhouses & Duplexes",
+      imageUrl: "/projects/w_28th_ave_1528/w-28th-ave-1528-vancouver-1.avif",
+    },
+    {
+      label: "Penthouse",
+      title: "Penthouses",
+      to: "/projects?type=Penthouses",
+      imageUrl: "/projects/cambie_st_885/cambie-st-885-2500-vancouver-2.avif",
     },
     {
       label: "Urban",
-      title: "Skyline Residences",
-      to: "/projects?type=Urban",
-      imageUrl: "/projects/groveland_road_928/groveland-road-928-west-vancouver-2.avif",
+      title: "Condos & Apartments",
+      to: "/projects?type=Condos & Apartments",
+      imageUrl: "/projects/quayside_dr_680/quayside-dr-680-4405-new-westminster-1.avif",
     },
   ];
 
@@ -135,8 +151,8 @@ export default function Categories() {
           </motion.div>
         </div>
 
-        {/* Custom Grid Layout */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        {/* Custom Grid Layout - Flex for better centering of the last row */}
+        <div className="flex flex-wrap justify-center gap-x-8 gap-y-20 md:gap-x-12 md:gap-y-32">
           {projects.map((project, i) => (
             <CategoryCard key={i} index={i} {...project} />
           ))}

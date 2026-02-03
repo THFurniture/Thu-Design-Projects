@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router";
 
 export default function Intro() {
-  const introImage = "/projects/groveland_road_928/groveland-road-928-west-vancouver-1.avif";
+  const introImage = "/projects/claysmith_rd_8128/claysmith-rd-8128-richmond-4.avif";
 
   return (
     <section className="py-24 md:py-44 bg-[#F9F8F6] relative overflow-hidden">
@@ -51,7 +51,7 @@ export default function Intro() {
                   className="inline-flex items-center gap-6 group"
                 >
                   <span className="text-[10px] uppercase tracking-[0.3em] font-bold border-b border-black/10 pb-2 group-hover:border-black transition-colors">
-                    Read Our Story
+                    Read About Us
                   </span>
                   <div className="w-10 h-10 rounded-full border border-black/5 flex items-center justify-center group-hover:bg-black group-hover:text-white transition-all duration-500">
                     <span className="material-symbols-outlined text-sm">arrow_forward</span>
@@ -92,8 +92,8 @@ export default function Intro() {
               <div className="space-y-4">
                 <span className="block w-8 h-[2px] bg-black" />
                 <p className="text-[10px] uppercase tracking-[0.3em] text-[#8B877D] font-bold">Featured Project</p>
-                <h3 className="font-serif text-2xl text-[#1A1A1A] leading-tight">Groveland <br/>Residence</h3>
-                <p className="text-xs text-[#8B877D] italic">British Properties, 2024</p>
+                <h3 className="font-serif text-2xl text-[#1A1A1A] leading-tight">Claysmith Road <br/>Residence</h3>
+                <p className="text-xs text-[#8B877D] italic">Richmond, 2025</p>
               </div>
             </motion.div>
 
