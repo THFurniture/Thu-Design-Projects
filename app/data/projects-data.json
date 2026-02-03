@@ -1,0 +1,161 @@
+{
+    "projects": [
+      {
+        "name": "King Georges Way Residence",
+        "projectType": "Luxury Estates",
+        "description": "A contemporary architectural statement featuring bold geometric lines, metal and wood cladding, and expansive floor-to-ceiling windows that frame stunning views. Inside, the home opens into a bright, elegant layout with marble floors, custom millwork, and sculptural lighting. Our staging enhances the home’s modern luxury with soft textures, curated furniture, and a warm neutral palette—highlighting the flow, scale, and refined details of every room. A seamless blend of architecture and interior styling designed for sophisticated living.",
+        "id": "king-georges-way-815"
+      },
+      {
+        "name": "King Georges Way House",
+        "projectType": "Luxury Estates",
+        "description": "A contemporary architectural masterpiece, this residence blends clean modern lines with rich natural textures. The exterior features a striking mix of metal cladding, warm wood panels, and layered stonework, creating a bold yet timeless façade. Large windows flood the interior with natural light, highlighting the home’s open-concept layout and seamless indoor-outdoor flow. Inside, our staging complements the home’s luxurious materials—polished stone floors, custom millwork, and high ceilings—with a palette of soft neutrals and vibrant accents. Thoughtful furniture placement enhances the spacious living areas, while layered textures and curated décor bring warmth and sophistication. The result is a refined, inviting environment that elevates the home’s architectural elegance and showcases its lifestyle potential.",
+        "id": "king-georges-way-830"
+      },
+      {
+        "name": "Esplanade Residence House",
+        "projectType": "Single-Family Homes",
+        "description": "The Esplanade Residence is a modern architectural statement defined by bold geometric lines, expansive glazing, and a tiered concrete landscape that frames the home with sculptural precision. Its elevated façade, floating balconies, and glass railings create a seamless connection between indoor and outdoor living. Inside, warm wood tones, curved designer furnishings, and layered textures bring softness to the home’s contemporary structure. Sun-filled living spaces, a sculptural open-riser staircase, and a glass-enclosed wine room add sophistication, while thoughtful staging highlights the home’s clean lines and luxurious flow. The final result is a refined blend of architectural elegance and modern interior design.",
+        "id": "esplanade-ave-1029"
+      },
+      {
+        "name": "Crestline Residence",
+        "projectType": "Luxury Estates",
+        "description": "The Crestline Residence showcases timeless European-inspired architecture with a grand stucco façade, wrought-iron details, and beautifully tiered landscaping. Inside, the home blends classic luxury with modern comfort—featuring marble fireplaces, custom millwork, spacious view windows, and elegant, soft-toned furnishings. A refined theatre room and thoughtfully styled living spaces complete this sophisticated, elevated West Coast estate.",
+        "id": "crestline-rd-1095"
+      },
+      {
+        "name": "Gilston Residence",
+        "projectType": "Luxury Estates",
+        "description": "A stately French-inspired estate defined by its grand symmetry, arched windows, and sculpted columns that create an unmistakable sense of elegance. Inside, Gilston transitions into modern luxury—marble floors, custom wood millwork, refined ceiling details, and curated furnishings form a sophisticated yet inviting atmosphere. This project beautifully merges European classical architecture with contemporary interior design, delivering a timeless and elevated living experience.",
+        "id": "gilston-road-1112"
+      },
+      {
+        "name": "Chartwell Residence",
+        "projectType": "Luxury Estates",
+        "description": "Chartwell is a grand French-inspired estate characterized by sculpted dormer roofs, curved balconies, classical columns, and intricate wrought-iron detailing, creating a timeless and prestigious architectural presence. Inside, a breathtaking double-height foyer with a hand-painted dome and sweeping curved staircase sets the tone for the home’s refined elegance. Throughout the interiors, marble floors, custom ceiling designs, and soft contemporary furnishings blend seamlessly with the classical framework, resulting in a bright, luxurious, and harmoniously modern interpretation of this iconic Chartwell residence.",
+        "id": "chartwell-drive-1335"
+      },
+      {
+        "name": "Sandhurst Mansion",
+        "projectType": "Luxury Estate",
+        "description": "Sandhurst is a modern architectural masterpiece defined by its striking flat-roof silhouette, expansive stone façade, and bold overhangs that create a dramatic sense of scale and symmetry. Floor-to-ceiling glazing brings the outdoors in, opening the home to sweeping views and natural light throughout. Inside, the design is refined and contemporary, featuring polished marble floors, sculptural lighting, and an open-concept layout that flows seamlessly from the grand living area to the elegant kitchen and dining spaces. Soft neutral tones, layered textures, and curated furnishings elevate each room, while the serene primary suite—with its minimalist palette and resort-style ambiance—captures the essence of modern coastal luxury.",
+        "id": "sandhurst-place-1416"
+      },
+      {
+        "name": "Bramwell Residence",
+        "projectType": "Luxury Estate",
+        "description": "Bramwell is a grand estate defined by classic European architecture and timeless luxury. The exterior showcases a majestic symmetrical façade, tiered landscaping, wrought-iron gates, and sweeping stone staircases leading to an impressive columned entrance—all overlooking expansive ocean views. Inside, the home features a dramatic double-curved staircase, intricate millwork, coffered ceilings with gold detailing, and richly crafted wood cabinetry. Every space is layered with elegant interior design elements: refined furnishings, sculptural lighting, custom fireplaces, and serene, light-filled rooms that blend old-world craftsmanship with modern comfort.",
+        "id": "bramwell-road-1421"
+      },
+      {
+        "name": "Skyline Crest",
+        "projectType": "Luxury Estate",
+        "description": "Skyline Crest is a modern West Coast home designed around breathtaking panoramic views of Vancouver and the ocean. Clean architectural lines, floating glass staircases, and expansive floor-to-ceiling windows define its contemporary silhouette. Inside, the airy open layout features marble flooring, custom millwork, soft coastal palettes, and curated modern furnishings. Each space flows seamlessly to the outdoors, creating a serene, sophisticated retreat that blends luxury living with the beauty of its natural surroundings.",
+        "id": "bramwell-road-1430"
+      },
+      {
+        "name": "Shaughnessy Haven",
+        "projectType": "Townhouses & Duplexes",
+        "description": "Shaughnessy Haven is a refined blend of classic Westside architecture and warm, contemporary living. The exterior features timeless stonework, arched entryways, deep-set windows, and a landscaped private courtyard that enhances the home’s elegant, heritage-inspired façade. Inside, the design embraces soft natural tones, fluted wood paneling, and curated artwork to create a serene and inviting atmosphere. Custom furniture, sculptural coffee tables, and layered textures elevate the living spaces, while the kitchen showcases shaker cabinetry, stone countertops, and matte black accents for a fresh modern contrast. The outdoor terrace is transformed into a cozy, boho-inspired retreat with woven lighting, macramé textures, and lush greenery—an intimate sanctuary in the heart of Shaughnessy.",
+        "id": "west-28th-ave-1528"
+      },
+      {
+        "name": "Rockwell Residence",
+        "projectType": "Family Homes",
+        "description": "The Rockwell Residence is a modern home defined by bold architecture and warm, contemporary interiors. Its exterior combines charcoal stone, wood accents, and geometric rooflines for a striking, sculptural presence. Inside, large windows and clean lines pair with soft neutrals, textured furnishings, and a dramatic stone fireplace. The kitchen features sleek matte cabinetry and book-matched marble, while the bedrooms offer calm, elegant styling with layered textiles and serene artwork. A cozy media room, wrapped in wood paneling and ambient LED lighting, completes this refined modern retreat.",
+        "id": "west-61st-ave-2077"
+      },
+      {
+        "name": "Mathers Masterpiece",
+        "projectType": "Single - Family Homes",
+        "description": "Mathers is a striking contemporary residence defined by bold architectural lines, a dramatic sloped roofline, and illuminated structural frames that create a distinctive silhouette day and night. Floor-to-ceiling windows anchor the design, flooding the interiors with natural light and blurring the boundary between indoor living and the lush outdoors. Inside, the home showcases refined modern luxury—crisp marble flooring, sculptural lighting, custom millwork, and layered textures that bring warmth to the minimalist palette. Each space balances elegance with comfort, from the serene living areas accented with oversized art and tailored furnishings to the intimate lounge with rich wood details and statement stone fireplace. The outdoor living area completes the experience, featuring a covered pavilion, integrated lighting, and resort-style seating that transforms the backyard into a year-round retreat.",
+        "id": "mathers-ave-2495"
+      },
+      {
+        "name": "The Smithe by Boffo Development",
+        "projectType": "Penthouses",
+        "description": "The Smithe showcases elevated urban living with a contemporary architectural envelope defined by clean lines, expansive glazing, and panoramic city and mountain views. Inside, the design embraces a soft modern palette—coffered ceilings, wide-plank hardwood floors, and tailored furnishings create a refined yet inviting atmosphere. Floor-to-ceiling windows flood each room with natural light, framing Vancouver’s skyline as part of the interior experience. Custom millwork, sculptural lighting, and layered neutral textures add warmth and sophistication throughout the open living areas and serene bedrooms. This project highlights modern luxury at its finest—bright, airy, and thoughtfully curated in every detail.",
+        "id": "cambie-st-885-2500"
+      },
+      {
+        "name": "Ikebuchi-designed Residence by Landmark on Robson",
+        "projectType": "Condos & Apartment",
+        "description": "This Ikebuchi Residence showcases the harmony between striking contemporary architecture and refined interior design. Set within twin glass towers defined by clean vertical lines, signature horizontal fins, and expansive floor-to-ceiling windows, the home is surrounded by panoramic views of English Bay, the North Shore mountains, and the vibrant downtown skyline. Inside, a soft, modern palette of light oak floors, sculptural furniture, and tailored neutral upholstery creates a serene contrast to the bold architectural frame. Subtle ceiling details and recessed lighting guide the open flow from living to dining, while curated artwork and textures elevate the minimalist aesthetic. The primary bedroom continues the calm sophistication with a full fluted headboard wall, plush textiles, and mirrored accents that reflect the city lights. This project embodies elevated West Coast living—where architectural precision and luxurious interior styling come together seamlessly.",
+        "id": "robson-st-1408-2901"
+      },
+      {
+        "name": "Kengo Kuma designed  Residence by Westbank Corp",
+        "projectType": "Condos & Apartments",
+        "description": "This project, set within a landmark tower designed by Kengo Kuma, celebrates the fusion of bold architectural artistry and serene contemporary living. The building’s sculptural form—defined by its rhythmic façade, organic geometry, and intricate interplay of light and shadow—creates a striking architectural identity that flows seamlessly into the residence. Inside, expansive floor-to-ceiling glazing frames sweeping ocean and mountain views, grounding the home in the natural beauty of the West Coast. The interior design embraces soft luxury through layered neutrals, light wood flooring, sculptural furniture, and airy textiles, offering a calm counterpoint to the tower’s expressive exterior. Thoughtful spatial flow, refined materials, and subtle organic curves enhance the sense of openness, while the spacious terrace extends living outdoors with natural textures and lush greenery. Together, Kengo Kuma’s visionary architecture and the elevated interior design form a harmonious, light-filled retreat suspended above the city.",
+        "id": "alberni-st-1568"
+      },
+      {
+        "name": "Burkehill Residence",
+        "projectType": "Luxury Estates",
+        "description": "This striking contemporary residence is designed to capture the essence of modern West Coast luxury. Defined by its sculptural roofline, expansive glass walls, and cascading terraces, the architecture maximizes natural light and frames uninterrupted ocean views from every angle. The interior continues this refined aesthetic with marble flooring, warm natural wood accents, and a dramatic black stone fireplace that anchors the main living space. Curated staging introduces soft neutrals, sculptural silhouettes, and layered textures, bringing warmth and balance to the home’s clean architectural lines. The result is a seamless blend of indoor–outdoor living, sophisticated design, and coastal serenity.",
+        "id": "burkehill-road-4129"
+      },
+      {
+        "name": "Advaya Project",
+        "projectType": "Single-Family Homes",
+        "description": "This modern home features a clean architectural profile with geometric forms, large picture windows, and a refined mix of stucco and concrete textures. Inside, a serene palette of soft whites, natural oak floors, and integrated LED lighting creates a bright and elegant atmosphere. The open living and dining area is anchored by a minimalist fireplace and sculptural furnishings, while curated neutral tones and contemporary décor highlight the home’s clean lines. The primary bedroom continues this calm, modern aesthetic with warm lighting, soft textures, and expansive windows that connect the space to the outdoors.",
+        "id": "blenheim-st-4741"
+      },
+      {
+        "name": "The Jewel Box at Hyatt Residence",
+        "projectType": "Penthouses",
+        "description": "This iconic downtown residence known as The Jewel Box rises above the city with dramatic floor-to-ceiling glass walls that wrap the entire residence, showcasing panoramic views of the ocean, mountains, and skyline. The architecture emphasizes openness and light, with soaring double-height ceilings, sleek structural columns, and floating glass-railed staircases that enhance the airy vertical space. Inside, the interior design embraces a refined modern aesthetic with soft neutral tones, luxurious textures, and sculptural furnishings that complement the expansive scale of the home. Natural wood floors add warmth beneath the abundant natural light, while curated décor, layered textiles, and statement art pieces create a serene yet sophisticated atmosphere. Every corner of the residence is designed to highlight its breathtaking vistas, blending contemporary elegance with the unmatched drama of high-rise living.",
+        "id": "west-georgia-st-1128-4903"
+      },
+      {
+        "name": "Lyon Rd Residence",
+        "projectType": "Luxury Estates",
+        "description": "This contemporary residence features bold modern architecture defined by clean geometric lines, expansive windows, and a striking cantilevered roof that enhances its strong architectural presence. The interior embraces a warm minimalist aesthetic with soaring ceilings, layered lighting, and thoughtfully integrated wood accents that bring softness to the crisp structural forms. Open-concept living spaces flow seamlessly from the elegant sitting area to the dining room and custom-designed kitchen, all styled in a refined palette of soft neutrals and rich textures. Sculptural lighting, bespoke millwork, and sophisticated furnishings elevate every room, while the serene primary suite showcases tailored paneling, ambient lighting, and luxurious finishes that complete the home’s modern yet inviting character.",
+        "id": "lyon-road-6420"
+      },
+      {
+        "name": "The Angus Residence",
+        "projectType": "Luxury Estates",
+        "description": "This grand estate blends timeless European-inspired architecture with refined modern luxury, featuring a symmetrical façade, elegant balconies, and detailed millwork that emphasize its classical character. Inside, soaring arched ceilings, intricate mouldings, and expansive windows create a luminous backdrop for the home’s sophisticated interior design. Marble fireplaces, crystal chandeliers, and curated furnishings introduce an atmosphere of understated opulence, while spaces like the formal salon, richly appointed study, and serene family rooms highlight a balance of tradition and contemporary comfort. Every room is thoughtfully layered with texture, craftsmanship, and bespoke details, forming a residence that feels both stately and beautifully livable.",
+        "id": "angus-dr-8083"
+      },
+      {
+        "name": "Claysmith Residence",
+        "projectType": "Single-Family Homes",
+        "description": "This contemporary estate blends refined classical lines with modern elegance, featuring a crisp façade, grand symmetrical windows, and detailed trim work that create a sophisticated architectural presence. Inside, soaring ceilings with exposed beams, full-height windows, and warm wood accents flood the home with natural light while grounding the open-concept layout in softness and texture. Thoughtfully curated interiors include a serene living room anchored by a marble fireplace feature, a bright and airy great room that flows seamlessly into a custom kitchen, and a dramatic theatre lounge with a celestial ceiling. The bedrooms showcase tailored wall paneling, luxurious textiles, and calming palettes, while the covered outdoor living area—complete with a sculptural fireplace—extends the home’s elegance into the garden. The result is a beautifully balanced residence that feels both elevated and welcoming.",
+        "id": "claysmith-rd-8128"
+      },
+      {
+        "name": "The Elevation Residence",
+        "projectType": "Single-Family Homes",
+        "description": "This elegant modern estate features a striking architectural façade defined by clean lines, grand columns, and contrasting monochromatic tones that create a bold yet timeless presence. Inside, the double-height foyer opens into a sunlit living space where floor-to-ceiling windows, warm wood paneling, and a sculptural marble fireplace set the tone for refined contemporary living. The interiors blend soft neutrals with luxurious textures, from the curved dining chairs and layered artwork to the serene great room framed by coffered ceilings and custom millwork. Thoughtful staging enhances the home’s natural light and fluid layout, while the tranquil primary suite—finished with vertical upholstered panels, airy drapery, and a soothing palette—adds a boutique-hotel feel. The Elevation Residence embodies sophisticated design, balancing architectural drama with inviting, modern comfort.",
+        "id": "fairbrook-cres-8500"
+      },
+      {
+        "name": "The Fairfax Residence",
+        "projectType": "Single-Family Homes",
+        "description": "This beautifully crafted residence blends modern architecture with warm, timeless design, featuring a striking façade of white brick, black framed windows, and a sculptural timber entry that adds depth and character. Inside, soaring double-height ceilings, custom iron railings, and expansive windows fill the home with natural light, highlighting the refined palette of soft neutrals, natural oak, and textured stone. The interior flows gracefully from the elegant formal living room with its statement fireplace to the serene dining space and into a contemporary kitchen framed by black arched doors. Thoughtful design moments—such as the marble-clad powder room, the tranquil primary suite opening onto a private terrace, and the playful loft with built-in millwork—create a cohesive atmosphere of comfort and sophistication. Every architectural line and curated furnishing works together to elevate this home into a refined, modern sanctuary.",
+        "id": "fairfax-cres-8531"
+      },
+      {
+        "name": "The Finn Mansion",
+        "projectType": "Luxury Estate",
+        "description": "This extraordinary European-inspired estate sits on expansive farmland with breathtaking mountain views, featuring timeless architecture defined by terracotta roofs, classical columns, and grand symmetrical facades. Inside, the home opens into a dramatic double-curved staircase leading to a sunlit great room crowned with soaring arched windows and an ornate crystal chandelier. Every space showcases refined craftsmanship—from the formal dining room with detailed millwork and twin chandeliers to the lavish living salon accented by intricate ceiling designs, marble floors, and elegant archways. The interiors blend old-world opulence with fresh contemporary styling, seen in the serene primary suite with its textured walls, bespoke fireplace, and soft neutral palette. Layered lighting, curated furnishings, and luxurious materials elevate each room, creating a residence that feels both palatial and inviting.",
+        "id": "finn-rd-8731"
+      },
+      {
+        "name": "Quayside Condo by Bosa Development Inc",
+        "projectType": "Condos & Apartments",
+        "description": "This contemporary high-rise residence is perched within a striking glass tower defined by its sculptural form, sleek façade, and expansive panoramic views. Inside, the home embraces a bright, modern aesthetic with floor-to-ceiling windows that flood the space with natural light and frame sweeping city and river vistas. The open-concept living area features soft neutral furnishings, layered textures, and clean lines that complement the building’s minimalist architecture. A streamlined kitchen with integrated cabinetry and warm wood tones blends seamlessly into the space, while the serene bedroom is styled in calming creams and plush fabrics, creating a luxurious retreat above the skyline. Thoughtful staging enhances the suite’s airy elegance, highlighting a lifestyle centered on light, openness, and contemporary urban living.",
+        "id": "quayside-dr-680"
+      },
+      {
+        "name": "Balfour Home",
+        "projectType": "Luxury Estates",
+        "description": "This beautifully restored heritage estate blends classic architectural character with contemporary luxury through thoughtful design and staging. Soaring ceilings, expansive windows, and detailed millwork set an elegant foundation, while a curated palette of soft neutrals, warm woods, and custom furnishings brings a modern sense of comfort and refinement. Each space is intentionally layered to enhance natural light and highlight the craftsmanship of the home—from the grand formal living room with its statement chandelier, to the open-concept dining and family areas anchored by bespoke cabinetry and marble-inspired finishes. The kitchen’s gold accents, the office’s rich paneling, and the serene upper-level suites were all styled to create a cohesive flow that feels both elevated and inviting. The result is a timeless transformation that honors the home’s architectural heritage while elevates it for today’s luxury living.",
+        "id": "balfour-ave-1263"
+      }
+    ]
+  }
+  
