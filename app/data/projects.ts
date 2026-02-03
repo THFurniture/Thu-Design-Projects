@@ -33,7 +33,7 @@ function generateImagePaths(folder: string, baseName: string, count: number, ext
   );
 }
 
-// Projects with images (21 projects)
+// Projects with images (27 projects)
 const projectsWithImages: Project[] = [
   {
     id: "king-georges-way-830",
@@ -283,10 +283,6 @@ const projectsWithImages: Project[] = [
     thumbnail: "/projects/chartwell_dr_1335/chartwell-dr-1335-west-vancouver-1.avif",
     hasImages: true,
   },
-];
-
-// Placeholder projects (9 projects) - will be updated when images are added
-const placeholderProjects: Project[] = [
   {
     id: "claysmith-rd-8128",
     name: "Claysmith Rd",
@@ -294,20 +290,20 @@ const placeholderProjects: Project[] = [
     address: "8128 Claysmith Road",
     location: "Richmond",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("claysmith_rd_8128", "claysmith-rd-8128-richmond", 9),
+    thumbnail: "/projects/claysmith_rd_8128/claysmith-rd-8128-richmond-1.avif",
+    hasImages: true,
   },
   {
-    id: "gilstone-road-1112",
-    name: "Gilstone Road",
-    slug: "gilstone-road-1112",
-    address: "1112 Gilstone Road",
+    id: "gilston-road-1112",
+    name: "Gilston Road",
+    slug: "gilston-road-1112",
+    address: "1112 Gilston Road",
     location: "West Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("gilston_rd_1112", "gilston-rd-1112-west-vancouver", 7),
+    thumbnail: "/projects/gilston_rd_1112/gilston-rd-1112-west-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "robson-st-1408-2901",
@@ -316,9 +312,9 @@ const placeholderProjects: Project[] = [
     address: "1408 Robson Street, Unit 2901",
     location: "Vancouver",
     projectType: "Urban",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("robson_st_1408", "robson-st-1408-2901-vancouver", 11),
+    thumbnail: "/projects/robson_st_1408/robson-st-1408-2901-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "sandhurst-place-1416",
@@ -327,9 +323,9 @@ const placeholderProjects: Project[] = [
     address: "1416 Sandhurst Place",
     location: "West Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("sandhurst_pl_1416", "sandhurst-pl-1416-west-vancouver", 10),
+    thumbnail: "/projects/sandhurst_pl_1416/sandhurst-pl-1416-west-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "west-28th-ave-1528",
@@ -338,9 +334,9 @@ const placeholderProjects: Project[] = [
     address: "1528 West 28th Avenue",
     location: "Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("w_28th_ave_1528", "w-28th-ave-1528-vancouver", 8),
+    thumbnail: "/projects/w_28th_ave_1528/w-28th-ave-1528-vancouver-1.avif",
+    hasImages: true,
   },
   {
     id: "balfour-ave-1263",
@@ -349,10 +345,14 @@ const placeholderProjects: Project[] = [
     address: "1263 Balfour Avenue",
     location: "Vancouver",
     projectType: "Residential",
-    images: [],
-    thumbnail: "",
-    hasImages: false,
+    images: generateImagePaths("balfour_ave_1263", "balfour-ave-1263-vancouver", 8),
+    thumbnail: "/projects/balfour_ave_1263/balfour-ave-1263-vancouver-1.avif",
+    hasImages: true,
   },
+];
+
+// Placeholder projects (3 projects) - will be updated when images are added
+const placeholderProjects: Project[] = [
   {
     id: "bramwell-road-1430",
     name: "Bramwell Road",
