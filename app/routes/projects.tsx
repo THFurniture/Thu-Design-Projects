@@ -17,9 +17,10 @@ export function meta({}: Route.MetaArgs) {
     { name: "description", content: "Explore our portfolio of luxury residential design projects across Vancouver and the Lower Mainland." },
     { property: "og:title", content: "THU Design Projects | Our Projects" },
     { property: "og:description", content: "Explore our portfolio of luxury residential design projects across Vancouver and the Lower Mainland." },
-    { property: "og:image", content: "/logos/THU Design Projects Logo White bg.png" },
+    { property: "og:image", content: "/projects/king_georges_way_815/king-georges-way-815-west-vancouver-1.avif" },
     { name: "twitter:title", content: "THU Design Projects | Our Projects" },
     { name: "twitter:description", content: "Explore our portfolio of luxury residential design projects across Vancouver and the Lower Mainland." },
+    { name: "twitter:image", content: "/projects/king_georges_way_815/king-georges-way-815-west-vancouver-1.avif" },
   ];
 }
 

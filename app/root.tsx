@@ -38,13 +38,13 @@ export const meta: Route.MetaFunction = () => {
     // Default Open Graph tags
     { property: "og:type", content: "website" },
     { property: "og:site_name", content: "THU Design Projects" },
-    { property: "og:image", content: "/logos/THU Design Projects Logo White bg.png" },
+    { property: "og:image", content: "/projects/sandhurst_pl_1416/sandhurst-pl-1416-west-vancouver-1.avif" },
     { property: "og:image:width", content: "1200" },
     { property: "og:image:height", content: "630" },
     { property: "og:image:alt", content: "THU Design Projects - Luxury Residential Design Studio" },
     // Twitter Card tags
     { name: "twitter:card", content: "summary_large_image" },
-    { name: "twitter:image", content: "/logos/THU Design Projects Logo White bg.png" },
+    { name: "twitter:image", content: "/projects/sandhurst_pl_1416/sandhurst-pl-1416-west-vancouver-1.avif" },
     { name: "twitter:image:alt", content: "THU Design Projects - Luxury Residential Design Studio" },
   ];
 };

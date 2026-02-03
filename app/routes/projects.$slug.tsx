@@ -22,9 +22,10 @@ export function meta({ params }: Route.MetaArgs) {
     { name: "description", content: description },
     { property: "og:title", content: title },
     { property: "og:description", content: description },
-    { property: "og:image", content: project?.thumbnail || "/logos/THU Design Projects Logo White bg.png" },
+    { property: "og:image", content: project?.thumbnail || "/projects/sandhurst_pl_1416/sandhurst-pl-1416-west-vancouver-1.avif" },
     { name: "twitter:title", content: title },
     { name: "twitter:description", content: description },
+    { name: "twitter:image", content: project?.thumbnail || "/projects/sandhurst_pl_1416/sandhurst-pl-1416-west-vancouver-1.avif" },
   ];
 }
 

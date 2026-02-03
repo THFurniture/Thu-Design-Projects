@@ -12,10 +12,11 @@ export function meta({ }: Route.MetaArgs) {
         // Open Graph tags
         { property: "og:title", content: "THU Design Projects | About Us" },
         { property: "og:description", content: "Designing with Intention. A luxury residential design studio focused on the intersection of architectural philosophy and tactile craftsmanship." },
-        { property: "og:image", content: "/logos/THU Design Projects Logo White bg.png" },
+        { property: "og:image", content: "/projects/groveland_road_928/groveland-road-928-west-vancouver-1.avif" },
         // Twitter Card tags
         { name: "twitter:title", content: "THU Design Projects | About Us" },
         { name: "twitter:description", content: "Designing with Intention. A luxury residential design studio focused on the intersection of architectural philosophy and tactile craftsmanship." },
+        { name: "twitter:image", content: "/projects/groveland_road_928/groveland-road-928-west-vancouver-1.avif" },
     ];
 }
 

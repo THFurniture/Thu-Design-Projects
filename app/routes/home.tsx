@@ -12,10 +12,11 @@ export function meta({ }: Route.MetaArgs) {
     // Open Graph tags
     { property: "og:title", content: "THU Design Projects | Redefining West Coast Living" },
     { property: "og:description", content: "Redefining West Coast Living. Creating residential sanctuaries that balance architectural precision with the raw beauty of nature." },
-    { property: "og:image", content: "/logos/THU Design Projects Logo White bg.png" },
+    { property: "og:image", content: "/projects/king_georges_way_830/king-georges-way-830-west-vancouver-1.avif" },
     // Twitter Card tags
     { name: "twitter:title", content: "THU Design Projects | Redefining West Coast Living" },
     { name: "twitter:description", content: "Redefining West Coast Living. Creating residential sanctuaries that balance architectural precision with the raw beauty of nature." },
+    { name: "twitter:image", content: "/projects/king_georges_way_830/king-georges-way-830-west-vancouver-1.avif" },
   ];
 }
 
