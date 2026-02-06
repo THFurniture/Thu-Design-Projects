@@ -11,19 +11,23 @@ export default function AboutHero() {
     offset: ["start start", "end start"],
   });
 
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "30%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const scale = useTransform(scrollYProgress, [0, 1], [1.05, 1.2]);
+  // Parallax and Scale effects
+  const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 1.15]);
+  const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
     <section 
       ref={containerRef}
-      className="relative h-[110vh] w-full overflow-hidden bg-[#0F0F0F] flex items-center"
+      className="relative h-screen w-full overflow-hidden bg-[#0F0F0F] flex items-center"
     >
-      {/* Background Layer with Subtle Zoom & Parallax */}
+      {/* Background with Cinematic Reveal */}
       <motion.div 
         style={{ y, scale }}
-        className="absolute inset-0 z-0"
+        initial={{ scale: 1.2, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 2, ease: [0.16, 1, 0.3, 1] }}
+        className="absolute inset-0"
       >
         <div className="absolute inset-0 bg-black/40 z-10" /> {/* Darken overlay */}
         <img 
@@ -33,18 +37,15 @@ export default function AboutHero() {
         />
       </motion.div>
 
-      {/* Noise Texture Overlay for "Film" feel */}
-      <div className="absolute inset-0 z-10 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-
       <div className="container mx-auto px-6 md:px-12 relative z-20">
         <div className="grid grid-cols-12 gap-6">
 
           {/* Center/Right: Main Content */}
           <div className="col-span-12 lg:col-span-9 flex flex-col justify-center">
             <motion.div
-              initial={{ opacity: 0, y: 40 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2, ease: [0.22, 1, 0.36, 1] }}
+              initial={{ opacity: 0, x: -30 }}
+              animate={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
               style={{ opacity }}
             >
               <h2 className="text-white/60 text-xs md:text-sm uppercase tracking-[0.6em] mb-6 block">
@@ -58,7 +59,12 @@ export default function AboutHero() {
                 </span>
               </h1>
 
-              <div className="flex flex-col md:flex-row md:items-end gap-8">
+              <motion.div 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.8, duration: 1 }}
+                className="flex flex-col md:flex-row md:items-end gap-8"
+              >
                 <p className="text-white/70 text-lg md:text-xl font-light leading-relaxed max-w-lg antialiased">
                   A luxury residential design studio focused on the intersection of 
                   <span className="text-white"> architectural philosophy</span> and tactile craftsmanship.
@@ -66,7 +72,6 @@ export default function AboutHero() {
                 
                 <Link to="/projects">
                 <motion.div 
-                  whileHover={{ scale: 1.05 }}
                   className="group cursor-pointer flex items-center gap-4"
                 >
                     <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
@@ -75,7 +80,7 @@ export default function AboutHero() {
                       <span className="text-white text-[10px] uppercase tracking-[0.3em] font-medium">View Portfolio</span>
                 </motion.div>
                 </Link>
-              </div>
+              </motion.div>
             </motion.div>
           </div>
         </div>

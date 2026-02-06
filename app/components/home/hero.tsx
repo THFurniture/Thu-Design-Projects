@@ -17,7 +17,7 @@ export default function Hero() {
   return (
     <header 
       ref={containerRef} 
-      className="relative h-screen w-full overflow-hidden bg-[#0A0A0A]"
+      className="relative h-screen w-full overflow-hidden"
     >
       {/* Background with Cinematic Reveal */}
       <motion.div 

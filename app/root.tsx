@@ -5,12 +5,15 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "react-router";
+import { useEffect } from "react";
 
 import type { Route } from "./+types/root";
 import "./app.css";
 import Navbar from "./layout/navbar";
 import Footer from "./layout/footer";
+import useSmoothScroll, { getLenisInstance } from "./hooks/useSmoothScroll";
 
 export const links: Route.LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -60,7 +63,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
       </head>
       <body>
         {children}
-        <ScrollRestoration getKey={(location) => location.pathname} />
+        <ScrollRestoration
+          getKey={(location) => {
+            // Preserve scroll only for the projects list ↔ project detail flow
+            if (location.pathname === "/projects") {
+              return location.pathname;
+            }
+            // All other navigations scroll to top
+            return location.key;
+          }}
+        />
         <Scripts />
       </body>
     </html>
@@ -68,6 +80,34 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
+  // Initialize Lenis smooth scroll globally
+  useSmoothScroll(true);
+
+  const location = useLocation();
+
+  // Handle scroll behavior with Lenis
+  useEffect(() => {
+    const lenis = getLenisInstance();
+    if (!lenis) return;
+
+    if (location.pathname === "/projects") {
+      // For projects list, sync Lenis with any restored scroll position
+      // ScrollRestoration will restore the position, then we sync Lenis
+      requestAnimationFrame(() => {
+        const scrollY = window.scrollY || document.documentElement.scrollTop;
+        if (scrollY > 0) {
+          // Sync Lenis to the restored position smoothly
+          lenis.scrollTo(scrollY, { immediate: false });
+        }
+      });
+    } else {
+      // For all other routes (including project detail pages), scroll to top
+      requestAnimationFrame(() => {
+        lenis.scrollTo(0, { immediate: false });
+      });
+    }
+  }, [location.pathname]);
+
   return (
     <>
       <Navbar />

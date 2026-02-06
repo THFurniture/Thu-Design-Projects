@@ -42,6 +42,48 @@ export default function ProjectDetail({ params }: Route.ComponentProps) {
   return (
     <main className="bg-[#F9F8F6]">
       <ProjectHero project={project} />
+
+      {/* Project Description */}
+      {project.description && (
+        <section className="py-20 md:py-28 bg-[#F9F8F6] border-b border-[#E8E6E1]">
+          <div className="container mx-auto px-6 md:px-12">
+            <div className="grid grid-cols-12 gap-6 md:gap-12">
+              {/* Label Column */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8 }}
+                className="col-span-12 md:col-span-3"
+              >
+                <div className="flex items-center gap-4 mb-4">
+                  <span className="h-[1px] w-12 bg-[#8B877D]/30" />
+                  <span className="text-[10px] uppercase tracking-[0.5em] text-[#8B877D] font-bold">
+                    About
+                  </span>
+                </div>
+                <h2 className="text-[#121212] text-3xl md:text-4xl font-serif">
+                  The <span className="italic font-light">Project</span>
+                </h2>
+              </motion.div>
+
+              {/* Description Column */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.8, delay: 0.15 }}
+                className="col-span-12 md:col-span-8 md:col-start-5 flex items-center"
+              >
+                <p className="text-[#3D3D3D] text-base md:text-lg leading-[1.9] font-light antialiased">
+                  {project.description}
+                </p>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+      )}
+
       <ProjectGallery project={project} />
       <ProjectNavigation 
         project={project}
