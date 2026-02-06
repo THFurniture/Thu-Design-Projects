@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "framer-motion";
 import { useRef } from "react";
+import { Link } from "react-router";
 
 export default function AboutHero() {
   const containerRef = useRef<HTMLElement>(null);
@@ -63,6 +64,7 @@ export default function AboutHero() {
                   <span className="text-white"> architectural philosophy</span> and tactile craftsmanship.
                 </p>
                 
+                <Link to="/projects">
                 <motion.div 
                   whileHover={{ scale: 1.05 }}
                   className="group cursor-pointer flex items-center gap-4"
@@ -70,8 +72,9 @@ export default function AboutHero() {
                     <div className="w-12 h-12 rounded-full border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
                         <span className="material-symbols-outlined text-sm">north_east</span>
                     </div>
-                    <span className="text-white text-[10px] uppercase tracking-[0.3em] font-medium">View Portfolio</span>
+                      <span className="text-white text-[10px] uppercase tracking-[0.3em] font-medium">View Portfolio</span>
                 </motion.div>
+                </Link>
               </div>
             </motion.div>
           </div>
