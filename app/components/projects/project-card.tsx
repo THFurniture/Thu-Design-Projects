@@ -25,7 +25,7 @@ export default function ProjectCard({ project }: ProjectCardProps) {
       >
         {/* Image Container */}
         <div className="aspect-[4/5] w-full overflow-hidden">
-          {project.hasImages ? (
+          {project.hasImages && project.thumbnail ? (
             <img
               src={project.thumbnail}
               alt={project.name}

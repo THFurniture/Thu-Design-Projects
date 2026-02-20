@@ -1,13 +1,23 @@
 import { motion, useScroll, useTransform } from "framer-motion";
-import { useRef } from "react";
+import { type CSSProperties, useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
+  const [videoError, setVideoError] = useState(false);
+
+  useEffect(() => {
+    import("@mux/mux-player");
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end start"],
   });
+
+  const fallbackImage = "/projects/king_georges_way_830/king-georges-way-830-west-vancouver-9.avif";
+  const playbackId = "c6Od2c4k0200v2RS8BzpedacH4bscGAD529S8DWWCqLlU";
+  const canPlayVideo = playbackId.trim().length > 0;
 
   // Parallax and Scale effects
   const y = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
@@ -15,12 +25,12 @@ export default function Hero() {
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
   return (
-    <header 
-      ref={containerRef} 
+    <header
+      ref={containerRef}
       className="relative h-screen w-full overflow-hidden"
     >
       {/* Background with Cinematic Reveal */}
-      <motion.div 
+      <motion.div
         style={{ y, scale }}
         initial={{ scale: 1.2, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
@@ -29,18 +39,43 @@ export default function Hero() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10" />
-        <img 
-          src="/projects/king_georges_way_830/king-georges-way-830-west-vancouver-9.avif"
-          alt="Luxury Architecture"
-          className="h-full w-full object-cover"
-        />
+
+        {videoError || !canPlayVideo ? (
+          <img
+            src={fallbackImage}
+            alt="Luxury Architecture"
+            className="h-full w-full object-cover"
+          />
+        ) : (
+          <mux-player
+            playback-id={playbackId}
+            stream-type="on-demand"
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            poster={fallbackImage}
+            className="block h-full w-full object-cover"
+            style={
+              {
+                width: "100%",
+                height: "100%",
+                aspectRatio: "auto",
+                "--media-object-fit": "cover",
+                "--media-object-position": "center",
+              } as CSSProperties
+            }
+            onError={() => setVideoError(true)}
+          />
+        )}
       </motion.div>
 
       {/* Main UI Layer */}
       <div className="relative z-20 h-full container mx-auto px-6 md:px-12 flex flex-col justify-center">
-        
+
         {/* Top Detail: Location or Year */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5, duration: 1 }}
@@ -64,7 +99,7 @@ export default function Hero() {
               <span className="italic font-light text-white/90">West Coast</span>{" "}
               <span className="relative">
                 Living
-                <motion.span 
+                <motion.span
                   initial={{ width: 0 }}
                   animate={{ width: "100%" }}
                   transition={{ delay: 1, duration: 1.5 }}
@@ -74,7 +109,7 @@ export default function Hero() {
             </h1>
           </motion.div>
 
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.8, duration: 1 }}
@@ -85,19 +120,19 @@ export default function Hero() {
             </p>
 
             <div className="flex items-center gap-8">
-              <Link 
-                to="/projects" 
+              <Link
+                to="/projects"
                 className="group relative px-8 py-4 bg-white text-black text-xs uppercase tracking-[0.2em] font-bold overflow-hidden transition-transform active:scale-95"
               >
                 <span className="relative z-10">View Portfolio</span>
-                <motion.div 
+                <motion.div
                   initial={{ x: "-100%" }}
                   whileHover={{ x: 0 }}
                   className="absolute inset-0 bg-neutral-200 z-0"
                 />
               </Link>
 
-              <Link 
+              <Link
                 to="/about"
                 className="text-white text-[10px] uppercase tracking-[0.3em] font-medium py-2 border-b border-transparent hover:border-white/40 transition-all duration-500"
               >

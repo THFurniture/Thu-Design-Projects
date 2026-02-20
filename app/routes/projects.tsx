@@ -133,7 +133,7 @@ function ProjectsHero() {
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20 z-10" />
         <img
-          src="/projects/sandhurst_pl_1416/sandhurst-pl-1416-west-vancouver-4.avif"
+          src="/projects/sandhurst_pl_1416/sandhurst-pl-1416-west-vancouver-11.avif"
           alt="Projects Background"
           className="h-full w-full object-cover"
         />

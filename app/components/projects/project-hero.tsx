@@ -29,7 +29,7 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
         className="absolute inset-0 z-0"
       >
         <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 z-10" />
-        {project.hasImages ? (
+        {project.hasImages && project.thumbnail ? (
           <img
             src={project.thumbnail}
             alt={project.name}
@@ -90,18 +90,9 @@ export default function ProjectHero({ project }: ProjectHeroProps) {
             <div className="flex items-center gap-3">
               <span className="material-symbols-outlined text-white/50 text-lg">location_on</span>
               <span className="text-white/70 text-sm md:text-base font-light">
-                {project.address}, {project.location}
+                {project.address ? `${project.address}, ` : ""}{project.location}
               </span>
             </div>
-
-            {project.year && (
-              <div className="flex items-center gap-3">
-                <span className="material-symbols-outlined text-white/50 text-lg">calendar_month</span>
-                <span className="text-white/70 text-sm md:text-base font-light">
-                  {project.year}
-                </span>
-              </div>
-            )}
 
             {project.hasImages && (
               <div className="flex items-center gap-3">

@@ -131,7 +131,7 @@ function ProjectNavigation({ project, nextProject, prevProject }: ProjectNavigat
                   </span>
                 </div>
 
-                {prevProject.hasImages && (
+                {prevProject.hasImages && prevProject.thumbnail && (
                   <div className="hidden lg:block w-20 h-20 overflow-hidden">
                     <img
                       src={prevProject.thumbnail}
@@ -151,7 +151,7 @@ function ProjectNavigation({ project, nextProject, prevProject }: ProjectNavigat
               className="group relative flex items-center justify-end p-8 md:p-12 hover:bg-[#EFEDE8] transition-colors duration-500"
             >
               <div className="flex items-center gap-6 w-full justify-end text-right">
-                {nextProject.hasImages && (
+                {nextProject.hasImages && nextProject.thumbnail && (
                   <div className="hidden lg:block w-20 h-20 overflow-hidden">
                     <img
                       src={nextProject.thumbnail}

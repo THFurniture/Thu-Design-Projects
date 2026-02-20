@@ -16,14 +16,13 @@ export interface Project {
   id: string;
   name: string;
   slug: string;
-  address: string;
+  address: string | null;
   location: Location;
   projectType: ProjectType;
   images: string[];
-  thumbnail: string;
+  thumbnail: string | null;
   hasImages: boolean;
   featured?: boolean;
-  year?: number;
   description?: string;
 }
 
@@ -47,7 +46,6 @@ const projectsWithImages: Project[] = [
     thumbnail: "/projects/king_georges_way_830/king-georges-way-830-west-vancouver-1.avif",
     hasImages: true,
     featured: true,
-    year: 2024,
     description: "A contemporary architectural masterpiece, this residence blends clean modern lines with rich natural textures. The exterior features a striking mix of metal cladding, warm wood panels, and layered stonework, creating a bold yet timeless façade. Large windows flood the interior with natural light, highlighting the home's open-concept layout and seamless indoor-outdoor flow. Inside, our staging complements the home's luxurious materials—polished stone floors, custom millwork, and high ceilings—with a palette of soft neutrals and vibrant accents. Thoughtful furniture placement enhances the spacious living areas, while layered textures and curated décor bring warmth and sophistication. The result is a refined, inviting environment that elevates the home's architectural elegance and showcases its lifestyle potential.",
   },
   {
@@ -61,7 +59,6 @@ const projectsWithImages: Project[] = [
     thumbnail: "/projects/king_georges_way_815/king-georges-way-815-west-vancouver-1.avif",
     hasImages: true,
     featured: true,
-    year: 2024,
     description: "A contemporary architectural statement featuring bold geometric lines, metal and wood cladding, and expansive floor-to-ceiling windows that frame stunning views. Inside, the home opens into a bright, elegant layout with marble floors, custom millwork, and sculptural lighting. Our staging enhances the home's modern luxury with soft textures, curated furniture, and a warm neutral palette—highlighting the flow, scale, and refined details of every room. A seamless blend of architecture and interior styling designed for sophisticated living.",
   },
   {
@@ -74,7 +71,7 @@ const projectsWithImages: Project[] = [
     images: generateImagePaths("groveland_road_928", "groveland-road-928-west-vancouver", 7),
     thumbnail: "/projects/groveland_road_928/groveland-road-928-west-vancouver-1.avif",
     hasImages: true,
-    year: 2024,
+    description: "This residence showcases a refined balance of classical architecture and contemporary luxury, highlighted by intricate coffered ceilings, detailed millwork, fluted columns, and expansive glazing that fills each room with natural light. A striking double-sided stone fireplace anchors the main living areas, enhancing spatial flow while creating a sculptural focal point. Layered lighting—from ornate chandeliers to recessed illumination and elegant sconces—adds depth and warmth, complementing a curated palette of tailored neutrals accented with rich blues and gold tones. Mirrored wall panels and symmetrical detailing amplify the scale of the lower-level lounge, while the spa-inspired ensuite features marble surfaces, custom millwork vanities, and statement fixtures that elevate the architectural envelope. Every space was thoughtfully composed to enhance proportion, sightlines, and texture, presenting a cohesive, high-impact luxury residence.",
   },
   {
     id: "quayside-dr-680",
@@ -86,7 +83,6 @@ const projectsWithImages: Project[] = [
     images: generateImagePaths("quayside_dr_680", "quayside-dr-680-4405-new-westminster", 5),
     thumbnail: "/projects/quayside_dr_680/quayside-dr-680-4405-new-westminster-1.avif",
     hasImages: true,
-    year: 2024,
     description: "This contemporary high-rise residence is perched within a striking glass tower defined by its sculptural form, sleek façade, and expansive panoramic views. Inside, the home embraces a bright, modern aesthetic with floor-to-ceiling windows that flood the space with natural light and frame sweeping city and river vistas. The open-concept living area features soft neutral furnishings, layered textures, and clean lines that complement the building's minimalist architecture. A streamlined kitchen with integrated cabinetry and warm wood tones blends seamlessly into the space, while the serene bedroom is styled in calming creams and plush fabrics, creating a luxurious retreat above the skyline. Thoughtful staging enhances the suite's airy elegance, highlighting a lifestyle centered on light, openness, and contemporary urban living.",
   },
   {
@@ -99,7 +95,7 @@ const projectsWithImages: Project[] = [
     images: generateImagePaths("27th_ave_13560", "27th-ave-13560-surrey", 8),
     thumbnail: "/projects/27th_ave_13560/27th-ave-13560-surrey-1.avif",
     hasImages: true,
-    year: 2024,
+    description: "This residence showcases a refined balance of classical architecture and contemporary luxury, highlighted by intricate coffered ceilings, detailed millwork, fluted columns, and expansive glazing that fills each room with natural light. A striking double-sided stone fireplace anchors the main living areas, enhancing spatial flow while creating a sculptural focal point. Layered lighting—from ornate chandeliers to recessed illumination and elegant sconces—adds depth and warmth, complementing a curated palette of tailored neutrals accented with rich blues and gold tones. Mirrored wall panels and symmetrical detailing amplify the scale of the lower-level lounge, while the spa-inspired ensuite features marble surfaces, custom millwork vanities, and statement fixtures that elevate the architectural envelope. Every space was thoughtfully composed to enhance proportion, sightlines, and texture, presenting a cohesive, high-impact luxury residence.",
   },
   {
     id: "alberni-st-1568",
@@ -112,7 +108,6 @@ const projectsWithImages: Project[] = [
     thumbnail: "/projects/alberni_st_1568/alberni-st-1568-4001-vancouver-1.avif",
     hasImages: true,
     featured: true,
-    year: 2024,
     description: "This project, set within a landmark tower designed by Kengo Kuma, celebrates the fusion of bold architectural artistry and serene contemporary living. The building's sculptural form—defined by its rhythmic façade, organic geometry, and intricate interplay of light and shadow—creates a striking architectural identity that flows seamlessly into the residence. Inside, expansive floor-to-ceiling glazing frames sweeping ocean and mountain views, grounding the home in the natural beauty of the West Coast. The interior design embraces soft luxury through layered neutrals, light wood flooring, sculptural furniture, and airy textiles, offering a calm counterpoint to the tower's expressive exterior. Thoughtful spatial flow, refined materials, and subtle organic curves enhance the sense of openness, while the spacious terrace extends living outdoors with natural textures and lush greenery. Together, Kengo Kuma's visionary architecture and the elevated interior design form a harmonious, light-filled retreat suspended above the city.",
   },
   {
@@ -126,7 +121,6 @@ const projectsWithImages: Project[] = [
     images: generateImagePaths("angus_dr_8083", "angus-dr-8083-vancouver", 5),
     thumbnail: "/projects/angus_dr_8083/angus-dr-8083-vancouver-1.avif",
     hasImages: true,
-    year: 2023,
     description: "This grand estate blends timeless European-inspired architecture with refined modern luxury, featuring a symmetrical façade, elegant balconies, and detailed millwork that emphasize its classical character. Inside, soaring arched ceilings, intricate mouldings, and expansive windows create a luminous backdrop for the home's sophisticated interior design. Marble fireplaces, crystal chandeliers, and curated furnishings introduce an atmosphere of understated opulence, while spaces like the formal salon, richly appointed study, and serene family rooms highlight a balance of tradition and contemporary comfort. Every room is thoughtfully layered with texture, craftsmanship, and bespoke details, forming a residence that feels both stately and beautifully livable.",
   },
   {
@@ -163,6 +157,7 @@ const projectsWithImages: Project[] = [
     images: generateImagePaths("howe-st-1480", "howe-st-1480-vancouver", 4),
     thumbnail: "/projects/howe-st-1480/howe-st-1480-vancouver-1.avif",
     hasImages: true,
+    description: "This penthouse residence is defined by its expansive floor-to-ceiling glazing and uninterrupted panoramic vistas of the city skyline, mountains, and water, creating a seamless dialogue between interior architecture and the urban landscape. A restrained, contemporary palette of soft neutrals and layered textures enhances the sense of volume, while wide-plank herringbone flooring introduces subtle movement and refinement. The open-concept living and dining areas are anchored by sculptural furnishings and a statement pendant, carefully scaled to maintain visual balance against the dramatic glazing. Clean-lined millwork, minimalist detailing, and integrated transitions emphasize clarity and proportion throughout. In the private quarters, the primary suite continues the architectural language with low-profile upholstery, tailored textiles, and expansive corner windows that frame the skyline as a living backdrop. The overall composition reflects a modern luxury aesthetic—elevated, airy, and intentionally curated to celebrate light, view, and spatial flow.",
   },
   {
     id: "lyon-road-6420",
@@ -270,6 +265,7 @@ const projectsWithImages: Project[] = [
     images: generateImagePaths("trumond_ave_3428", "trumond-ave-3428-richmond", 9),
     thumbnail: "/projects/trumond_ave_3428/trumond-ave-3428-richmond-1.avif",
     hasImages: true,
+    description: "This custom-built residence is articulated through a refined contemporary façade of stone cladding, symmetrical massing, and layered rooflines, creating a commanding yet balanced street presence. Inside, a double-height foyer with coffered ceilings and full-height millwork establishes a grand architectural axis anchored by a linear fireplace clad in large-format marble. The open-concept living space is framed by a floating staircase with glass balustrades and integrated LED lighting, reinforcing clean sightlines and modern detailing. A warm palette of wide-plank wood flooring, soft neutral upholstery, and tailored textiles introduces texture while maintaining spatial clarity. The kitchen is composed with flat-panel cabinetry in light oak tones, waterfall quartz surfaces, vertical fluted accents, and minimalist pendant lighting, emphasizing proportion and material continuity. In the private quarters, layered wall treatments, sculptural headboards, and integrated lighting details elevate the suites into serene, hotel-inspired retreats. Throughout the home, architectural symmetry, custom millwork, and curated furnishings work in dialogue to create a cohesive composition that feels both elevated and intentionally livable.",
   },
   {
     id: "west-61st-ave-2077",
@@ -395,7 +391,7 @@ const projectsWithImages: Project[] = [
     id: "west-georgia-st-1128-4903",
     name: "The Jewel Box at Hyatt Residence",
     slug: "west-georgia-st-1128-4903",
-    address: "1128 West Georgia Street, Unit 4903",
+    address: "1128 West Georgia Street",
     location: "Vancouver",
     projectType: "Penthouses",
     images: generateImagePaths("w_georgia_st_1128", "w-georgia-st-1128-4903-vancouver", 10),
@@ -405,8 +401,45 @@ const projectsWithImages: Project[] = [
   },
 ];
 
-// Placeholder projects (0 projects) - all projects now have images
-const placeholderProjects: Project[] = [];
+// Placeholder projects (no images yet)
+const placeholderProjects: Project[] = [
+  {
+    id: "gibbons-residence-richmond",
+    name: "Gibbons Residence",
+    slug: "gibbons-residence-richmond",
+    address: "6780 Gibbons Dr",
+    location: "Richmond",
+    projectType: "Single-Family Homes",
+    images: generateImagePaths("gibbons_dr_6780", "gibbons-dr-6780-richmond", 7),
+    thumbnail: "/projects/gibbons_dr_6780/gibbons-dr-6780-richmond-1.avif",
+    hasImages: true,
+    description: "This custom luxury residence showcases a refined neo-classical architectural language, defined by a symmetrical façade, articulated pilasters, and a grand gated entry that establishes a formal yet timeless presence. Inside, the home unfolds through a double-height foyer anchored by a sweeping dual curved staircase, crystal chandeliers, and finely detailed wall paneling and crown mouldings, creating a sense of ceremony and scale. The interiors are unified by a soft, luminous palette of ivory and warm neutrals, enhanced by polished stone floors, bespoke millwork, and layered architectural ceilings with recessed cove lighting. Formal living and dining spaces are elegantly composed with classically inspired furniture silhouettes, custom rugs, and curated accessories that balance opulence with restraint. The primary suite offers a serene retreat, combining plush textiles, tailored furnishings, and architectural ceiling details to evoke understated luxury. Throughout the home, the staging emphasizes proportion, symmetry, and flow, presenting a sophisticated, gallery-like environment ideal for high-end living and resale presentation.",
+  },
+  {
+    id: "armstrong-residence-richmond",
+    name: "Armstrong Residence",
+    slug: "armstrong-residence-richmond",
+    address: "7577 Armstrong Street",
+    location: "Richmond",
+    projectType: "Single-Family Homes",
+    images: generateImagePaths("armstrong_st_7577", "armstrong-st-7577-richmond", 7),
+    thumbnail: "/projects/armstrong_st_7577/armstrong-st-7577-richmond-1.avif",
+    hasImages: true,
+    description: "This contemporary luxury residence presents a refined transitional architectural expression, blending clean modern lines with subtle classical detailing. The exterior is composed with sculptural rooflines, arched window forms, and a restrained monochromatic palette that establishes a strong yet elegant street presence. Inside, the home is defined by double-height volumes, expansive glazing, and an open-concept layout that prioritizes light, scale, and visual continuity. Architectural wall paneling, coffered and tray ceilings, and integrated recessed lighting add depth and rhythm throughout the interiors. The main living spaces are grounded by bespoke millwork, statement fireplaces in polished stone, and a soft layering of neutral furnishings that enhance proportion without overpowering the architecture. The kitchen anchors the home with a sleek, modern composition—flat-panel cabinetry, contrasting materials, and a generous island designed for both function and social flow. Private spaces, including bedrooms and upper-level lounges, are thoughtfully staged with tailored silhouettes, warm wood flooring, and textural textiles, creating a calm and elevated atmosphere. Overall, the staging emphasizes clarity, balance, and architectural integrity, presenting the home as a sophisticated, light-filled residence designed for modern family living and premium market appeal.",
+  },
+  {
+    id: "w26-residence-vancouver",
+    name: "W26 Residence",
+    slug: "w26-residence-vancouver",
+    address: null,
+    location: "Vancouver",
+    projectType: "Single-Family Homes",
+    images: generateImagePaths("w26_residence", "w26-residence", 8),
+    thumbnail: "/projects/w26_residence/w26-residence-1.avif",
+    hasImages: true,
+    description: "This refined residence showcases a transitional architectural design that balances classic structure with modern detailing. The exterior features textured stucco, stone accents, and symmetrical massing, complemented by warm architectural lighting. Inside, the home offers an open-concept layout with tray and coffered ceilings, integrated cove lighting, and custom millwork throughout. The kitchen and living areas are unified by clean-lined cabinetry, stone surfaces, and sculptural lighting, while expansive glazing enhances natural light and indoor–outdoor flow. Thoughtfully staged entertainment and lounge spaces highlight the home's functionality, proportion, and contemporary elegance—creating a polished, market-ready presentation for luxury living.",
+  },
+];
 
 // All projects combined
 export const projects: Project[] = [...projectsWithImages, ...placeholderProjects];
