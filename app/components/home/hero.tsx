@@ -2,12 +2,20 @@ import { motion, useScroll, useTransform } from "framer-motion";
 import { type CSSProperties, useEffect, useRef, useState } from "react";
 import { Link } from "react-router";
 
+const FALLBACK_DELAY_MS = 3000;
+
 export default function Hero() {
   const containerRef = useRef<HTMLElement>(null);
   const [videoError, setVideoError] = useState(false);
+  const [fallbackReady, setFallbackReady] = useState(false);
 
   useEffect(() => {
     import("@mux/mux-player");
+  }, []);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setFallbackReady(true), FALLBACK_DELAY_MS);
+    return () => clearTimeout(timer);
   }, []);
 
   const { scrollYProgress } = useScroll({
@@ -40,7 +48,7 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent z-10" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-black/20 z-10" />
 
-        {videoError || !canPlayVideo ? (
+        {!canPlayVideo || (videoError && fallbackReady) ? (
           <img
             src={fallbackImage}
             alt="Luxury Architecture"
@@ -55,7 +63,7 @@ export default function Hero() {
             loop
             playsinline
             preload="auto"
-            poster={fallbackImage}
+            poster={fallbackReady ? fallbackImage : undefined}
             className="block h-full w-full object-cover"
             style={
               {
